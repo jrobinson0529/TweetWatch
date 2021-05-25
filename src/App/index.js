@@ -2,7 +2,6 @@ import moment from 'moment';
 import React, { useState, useEffect } from 'react';
 // import firebase from 'firebase/app';
 import { BrowserRouter as Router } from 'react-router-dom';
-import 'firebase/auth';
 import './App.scss';
 import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
