@@ -25,16 +25,16 @@
 ### ERD/Postman Collection
 
 ##### First ERD
-![image](https://user-images.githubusercontent.com/45837967/119565113-2a157180-bd6f-11eb-8c4a-b6603cca23f5.png)
-##### Postman Collection
-[TwitterAPI Test Collection](https://www.getpostman.com/collections/f522edc151a1e800e061)
+![image](https://user-images.githubusercontent.com/45837967/119585208-d5362300-bd8f-11eb-861a-61eea4d9c15b.png)
 ### Wireframe (ROUGH)
 ![image](https://user-images.githubusercontent.com/45837967/119563858-b45cd600-bd6d-11eb-978c-bc29d9d6e536.png)
 ### Features
 - Users
   - User must authenticate through google to use the site. Prompted by a log in page.
-  - Users will be able to log in and change their username and/or add a bio in a profile page.
-  - STRETCH: User can see stats on their account for total tweets tracked, all handles currently being tracked. 
+  - STRETCH: Users will be able to log in and change their username and/or add a bio in a profile page.
+  - STRETCH: Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
+  - STRETCH: User can click on the randomly shown Topic from their followed users and see that Topics page/feed.
+  - SUPER STRETCH: User can see stats on their account for total tweets tracked, all handles currently being tracked. 
 - General
   - Once logged in the user will see a homepage where all currently tracked topics are compiled into one feed.
   - On the left hand side there will be a navbar that displays the user's profile image, bio and dropdown to access the log out or user profile page.
@@ -54,6 +54,7 @@
   - The user will be able to create, edit, delete Topics in a similar way to categories.
   - The topic page will display a feed of twitter posts that are aquired by search paramaters which are set up by the user.
   - When the User updates search paramaters the DOM should update the tweets to reflect that.
+  - The user can favorite certain topics that will display on a Favorited Topics page where they can see cards for each favorited topic.
   - STRETCH: User can set up the Topic to only track tweets that have a URL link in them.
   - STRETCH: User can set up the Topic to only track tweets that have an image in them.
 ### Link to the deployed project
