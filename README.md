@@ -22,8 +22,65 @@
   <br>
   With the ever growing presence of news channels, restaurants, and businesses on social media. Twitter has become the first place many of these sources post updates or news on new products. If you want to get news on things important to you without all the manual searching and skimming on the clutter of social media this app is for you! :point_right: :brain:
 
-### ERD/Postman Collection
+### Postman Responses
+- Get User(s) by Username
 
+```{
+    "data": [
+        {
+            "id": "110365072",
+            "name": "Gordon Ramsay",
+            "profile_image_url": "https://pbs.twimg.com/profile_images/1349755150316040194/VpUCtbH8_normal.jpg",
+            "protected": false,
+            "username": "GordonRamsay",
+            "verified": true
+        },
+        {
+            "name": "Joseph Marquez",
+            "verified": true,
+            "username": "C9Mang0",
+            "protected": false,
+            "profile_image_url": "https://pbs.twimg.com/profile_images/1360714045599358978/oh2wRcYm_normal.jpg",
+            "id": "621577260"
+        }
+    ]
+}
+```
+- Get User Tweets by ID from last 7 days.(This is the furthest back this app will track)
+
+``` {
+    "data": [
+        {
+            "id": "1398550212768112640",
+            "text": "Weekends done right at Heddon Street Kitchen !! @GordonRamsayGRR https://t.co/Aglb0DZEuN"
+        },
+        {
+            "id": "1398350822518501379",
+            "text": "RT @HellsKitchenFOX: Guess what? \n\nOnly 3️⃣ more days until @GordonRamsay has his hands full with his new generation. 👀 #HellsKitchen https…"
+        },
+        {
+            "id": "1397978552465825797",
+            "text": "America…I’m looking for a #NextLevelChef…is it you ? Apply now: https://t.co/2vV74SYEZr https://t.co/68tPzFzu2f"
+        }
+}
+```
+- Get Tweet(s) by tweetId
+
+```{
+    "data": [
+        {
+            "author_id": "110365072",
+            "id": "1398550212768112640",
+            "text": "Weekends done right at Heddon Street Kitchen !! @GordonRamsayGRR https://t.co/Aglb0DZEuN"
+        },
+        {
+            "author_id": "621577260",
+            "id": "1398435937529438209",
+            "text": "https://t.co/iT6ZHW0Wci \n\n40 Friday \n\nWatching videos and probably doing un ban request \n\n:)"
+        }
+    ]
+}
+```
 ##### First ERD
 ![image](https://user-images.githubusercontent.com/45837967/119585208-d5362300-bd8f-11eb-861a-61eea4d9c15b.png)
 ### Wireframe (ROUGH)
