@@ -1,9 +1,10 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import 'navbar';
 @import 'login';
 @import 'variables';
 
 #root {
-  color: white;
+  color: black;
   background-color: #2F3D63;
 }
 body {
