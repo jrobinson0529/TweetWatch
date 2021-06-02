@@ -95,10 +95,6 @@ ____
 - #### Users
   - User must authenticate through google to use the site. Prompted by a log in page.
   - STRETCH: Users will be able to log in and change their username and/or add a bio in a profile page.
-  - STRETCH: Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
-  - STRETCH: User will be able to view a friends list to see all their followed users.
-  - STRETCH: User can click on the randomly shown Topic from their followed users and see that Topics page/feed.
-  - SUPER STRETCH: User can see stats on their account for total tweets tracked, all handles currently being tracked. 
 - General
   - Once logged in the user will see a homepage where all currently tracked topics are compiled into one feed.
   - On the left hand side there will be a navbar that displays the user's profile image, bio and dropdown to access the log out or user profile page.
@@ -121,12 +117,17 @@ ____
   - The user can favorite certain topics that will display on a Favorited Topics page where they can see cards for each favorited topic.
 - #### Navigation
   - Dynamically updating categories and topics
-  - Number to track how many tweets are in each 
+  - Number to track how many tweets are in each
+### Stretch Features
+  - #### User interactivity
+    - Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
+    - User will be able to view a friends list to see all their followed users.
+    - User can click on the randomly shown Topic from their followed users and see that Topics page/feed.
   
-### Link to the deployed project
+### Personal Portfolio Site
+https://jesserobinson.me/
 ### Link to your project board
 https://github.com/jrobinson0529/TweetWatch/projects
-### Screenshots
 ### Contributors
 [Jesse Robinson](https://github.com/jrobinson0529)
 ### Loom video walkthrough
