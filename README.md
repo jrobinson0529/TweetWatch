@@ -120,9 +120,12 @@ ____
   - When the User updates search paramaters the DOM should update the tweets to reflect that.
   - The user can favorite certain topics that will display on a Favorited Topics page where they can see cards for each favorited topic.
 - #### Navigation
+  - Dynamically updating categories and topics
+  - Number to track how many tweets are in each 
   
 ### Link to the deployed project
 ### Link to your project board
+https://github.com/jrobinson0529/TweetWatch/projects
 ### Screenshots
 ### Contributors
 [Jesse Robinson](https://github.com/jrobinson0529)
