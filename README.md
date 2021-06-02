@@ -94,12 +94,8 @@ ____
 ### Features
 - #### Users
   - User must authenticate through google to use the site. Prompted by a log in page.
-  - STRETCH: Users will be able to log in and change their username and/or add a bio in a profile page.
-  - STRETCH: Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
-  - STRETCH: User will be able to view a friends list to see all their followed users.
-  - STRETCH: User can click on the randomly shown Topic from their followed users and see that Topics page/feed.
-  - SUPER STRETCH: User can see stats on their account for total tweets tracked, all handles currently being tracked. 
-- General
+  - Users will be able to log in and change their username and/or add a bio in a profile page.
+- #### General
   - Once logged in the user will see a homepage where all currently tracked topics are compiled into one feed.
   - On the left hand side there will be a navbar that displays the user's profile image, bio and dropdown to access the log out or user profile page.
   - The navbar will display all the Categories the user has currently set up.
@@ -107,8 +103,7 @@ ____
   - The navbar will feature a Contact link to give the user access to contacting me via email.
   - On the navbar there will be the option to add/delete/edit Categories that store Topics which will ulitmately track the tweets.
   - Next to each Category and Topic on the navbar it will display the amount of tweets being tracked. The Category number is the amount of tweets combined between all topics that belong to that category.
-  - STRETCH: The user will have the option to share tweets at any place in the site or store tweets in a Saved Tweets area for later consumption.
-  - SUPER STRETCH: Set up a bot that emails, slacks, or discords you tweets that you are tracking daily.
+  
 - #### Categories
   - The Add/Edit buttons will open up a form that allows the user to either create or edit a Category.
   - If the user clicks a 'Category' the Category's topics will appear on the navbar below all the categories. The page will switch to the Category's main page which will display all the handles being tracked for that category. (Twitter handles are being tracked on the category as a whole, not on individual topics.)
@@ -121,12 +116,22 @@ ____
   - The user can favorite certain topics that will display on a Favorited Topics page where they can see cards for each favorited topic.
 - #### Navigation
   - Dynamically updating categories and topics
-  - Number to track how many tweets are in each 
-  
-### Link to the deployed project
+  - Number to track how many tweets are in each
+- #### Saved Tweets
+    - User can save tweets by clicking a button on any tweet in the site
+    - User can view their saved tweets in the Saved Tweets page
+    - User can delete tweets from this page
+### Stretch Features
+- #### User interactivity
+    - Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
+    - User will be able to view a friends list to see all their followed users.
+    - User can click on the randomly shown Topic from their followed users and see that Topics page/feed.
+- #### Navigation
+    - User can see how many tweets are currently showing for every category and topic (Category is sum of all topics tweets)
+### Personal Portfolio Site
+https://jesserobinson.me/
 ### Link to your project board
 https://github.com/jrobinson0529/TweetWatch/projects
-### Screenshots
 ### Contributors
 [Jesse Robinson](https://github.com/jrobinson0529)
 ### Loom video walkthrough
