@@ -6,5 +6,9 @@
   margin: 20px !important;
 }
 .nav-menu {
-  min-width: 15% !important;
+  width: 15% !important;
+  min-width: 18em !important;
+}
+.menu-item-dropdown {
+  float: right;
 }

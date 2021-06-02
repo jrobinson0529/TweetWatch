@@ -1,49 +1,63 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Dropdown, Header, Image, Label, Menu
 } from 'semantic-ui-react';
 
-class NavMenu extends Component {
-  state = {}
+const MenuItemDropdown = () => (
+                <Dropdown icon='ellipsis vertical' pointing='left' className='menu-item-dropdown'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>
+                      Edit
+                    </Dropdown.Item>
+                    <Dropdown.Item>
+                      Delete
+                    </Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+);
+const NavMenu = ({ user }) => {
+  const [activeCategory, setActiveCategory] = useState({});
+  const [activeTopic, setActiveTopic] = useState({});
 
-  handleCategoryClick = (e, { name }) => this.setState({ activeCategory: name })
+  const handleCategoryClick = (e, { name }) => {
+    setActiveCategory({ activeCategory: name });
+  };
 
-  handleTopicClick = (e, { name }) => this.setState({ activeTopic: name })
+  const handleTopicClick = (e, { name }) => setActiveTopic({ activeTopic: name });
 
-  render() {
-    const { activeCategory } = this.state;
-    const { activeTopic } = this.state;
-
-    return (
+  return (
       <Menu vertical fixed='left' className='nav-menu'>
         <div>
-          <Image src={this.props.user.profileImage} avatar size='tiny' className='navbar-profile-image'/>
-          <Header color='black'>{this.props.user.username}</Header>
-          <Dropdown text='Account Info'>
+          <Image src={user.profileImage} avatar size='tiny' className='navbar-profile-image'/>
+          <Header color='black'>{user.username}</Header>
+          <Dropdown text='Account Info' pointing='left'>
             <Dropdown.Menu>
               <Dropdown.Item text='Profile'/>
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <Menu.Item>
+        <Menu.Item position='left'>
           <Menu.Header className='category-header'>Categories</Menu.Header>
             <Menu.Item
+              className='menu-item'
               name='food'
-              active={activeCategory === 'food'}
-              onClick={this.handleCategoryClick}
+              active={activeCategory.activeCategory === 'food'}
+              onClick={handleCategoryClick}
             >
-            <Image circular avatar src={this.props.user.profileImage}/>
+            <Image circular avatar floated='left' src={user.profileImage} className='menu-item-image'/>
             Food
-            <Label color='teal'>1</Label>
+            <MenuItemDropdown/>
+            <Label color='teal'>3</Label>
             </Menu.Item>
             <Menu.Item
               name='gaming'
-              active={activeCategory === 'gaming'}
-              onClick={this.handleCategoryClick}
+              active={activeCategory.activeCategory === 'gaming'}
+              onClick={handleCategoryClick}
             >
-              <Image circular avatar src={this.props.user.profileImage}/>
+              <Image circular avatar floated='left' src={user.profileImage}/>
               Gaming
+              <MenuItemDropdown/>
               <Label color='teal'>5</Label>
             </Menu.Item>
         </Menu.Item>
@@ -52,36 +66,38 @@ class NavMenu extends Component {
           <Menu.Header className='topic-header'>Topics</Menu.Header>
             <Menu.Item
               name='burgers'
-              active={activeTopic === 'burgers'}
-              onClick={this.handleTopicClick}
+              active={activeTopic.activeTopic === 'burgers'}
+              onClick={handleTopicClick}
             >
-              <Image circular avatar src={this.props.user.profileImage}/>
+              <Image circular avatar floated='left' src={user.profileImage}/>
               Burgers
+              <MenuItemDropdown/>
               <Label color='teal'>0</Label>
             </Menu.Item>
             <Menu.Item
               name='vegetarian'
-              active={activeTopic === 'vegetarian'}
-              onClick={this.handleTopicClick}
+              active={activeTopic.activeTopic === 'vegetarian'}
+              onClick={handleTopicClick}
               >
-                <Image circular avatar src={this.props.user.profileImage}/>
+                <Image circular avatar floated='left' src={user.profileImage}/>
                 Vegetarian
+                <MenuItemDropdown/>
                 <Label color='teal'>0</Label>
               </Menu.Item>
             <Menu.Item
               name='dinners'
-              active={activeTopic === 'dinners'}
-              onClick={this.handleTopicClick}
+              active={activeTopic.activeTopic === 'dinners'}
+              onClick={handleTopicClick}
               >
-                <Image circular avatar src={this.props.user.profileImage}/>
+                <Image circular avatar floated='left' src={user.profileImage}/>
                 Dinner
+                <MenuItemDropdown />
                 <Label color='teal'>12</Label>
               </Menu.Item>
           </Menu.Item>
       </Menu>
-    );
-  }
-}
+  );
+};
 
 const NavBar = ({ user }) => {
   console.warn(user);
