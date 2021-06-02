@@ -81,12 +81,18 @@
     ]
 }
 ```
-##### First ERD
+### ERD
 ![image](https://user-images.githubusercontent.com/45837967/119585208-d5362300-bd8f-11eb-861a-61eea4d9c15b.png)
+### Data Flow
+[Link](https://lucid.app/lucidchart/invitations/accept/inv_1bac38d2-9933-4064-b279-30a972258288)
+![image](https://user-images.githubusercontent.com/45837967/120404917-09b85a80-c30d-11eb-9927-f18f4192170f.png)
 ### Wireframe (ROUGH)
-![image](https://user-images.githubusercontent.com/45837967/119563858-b45cd600-bd6d-11eb-978c-bc29d9d6e536.png)
+____
+[Link](https://www.figma.com/file/G3wnLzt2Xl6thcIaN8j2T7/TweetWatch?node-id=135%3A768)
+![image](https://user-images.githubusercontent.com/45837967/120404807-c827af80-c30c-11eb-8ebc-90f4b7dc8c6e.png)
+
 ### Features
-- Users
+- #### Users
   - User must authenticate through google to use the site. Prompted by a log in page.
   - STRETCH: Users will be able to log in and change their username and/or add a bio in a profile page.
   - STRETCH: Users can follow other users by searching their account name and see a random Topic that their followed user is tracking.
@@ -102,19 +108,19 @@
   - On the navbar there will be the option to add/delete/edit Categories that store Topics which will ulitmately track the tweets.
   - Next to each Category and Topic on the navbar it will display the amount of tweets being tracked. The Category number is the amount of tweets combined between all topics that belong to that category.
   - STRETCH: The user will have the option to share tweets at any place in the site or store tweets in a Saved Tweets area for later consumption.
-  - STRETCH: Set up a bot that emails, slacks, or discords you tweets that you are tracking daily.
-- Categories
+  - SUPER STRETCH: Set up a bot that emails, slacks, or discords you tweets that you are tracking daily.
+- #### Categories
   - The Add/Edit buttons will open up a form that allows the user to either create or edit a Category.
   - If the user clicks a 'Category' the Category's topics will appear on the navbar below all the categories. The page will switch to the Category's main page which will display all the handles being tracked for that category. (Twitter handles are being tracked on the category as a whole, not on individual topics.)
   - The user can add and delete twitter handles to track for each Category.
   - The Category main page will display a title for that category, a description, and a compilation feed of the twitter posts being tracked for each topic in that Category.
-- Topics
+- #### Topics
   - The user will be able to create, edit, delete Topics in a similar way to categories.
   - The topic page will display a feed of twitter posts that are aquired by search paramaters which are set up by the user.
   - When the User updates search paramaters the DOM should update the tweets to reflect that.
   - The user can favorite certain topics that will display on a Favorited Topics page where they can see cards for each favorited topic.
-  - STRETCH: User can set up the Topic to only track tweets that have a URL link in them.
-  - STRETCH: User can set up the Topic to only track tweets that have an image in them.
+- #### Navigation
+  
 ### Link to the deployed project
 ### Link to your project board
 ### Screenshots
