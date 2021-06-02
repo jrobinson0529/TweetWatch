@@ -8,5 +8,8 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
+const twitterConfig = {
+  bearerToken: process.env.REACT_APP_TWITTER_BEARER_TOKEN
+};
 
-export default firebaseConfig;
+export { twitterConfig, firebaseConfig };

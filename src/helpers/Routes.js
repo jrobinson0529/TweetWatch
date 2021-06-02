@@ -4,14 +4,17 @@ import PropTypes from 'prop-types';
 import Home from '../views/Home';
 import About from '../views/About';
 import Users from '../views/Users';
+import PrivateRoute from './PrivateRoute';
+import Login from '../views/Login';
 
-function Routes({ user, time }) {
+function Routes({ user }) {
   return (
     <div>
       <Switch>
-        <Route exact path="/" component={() => <Home user={user} time={time}/>} />
-        <Route exact path="/about" component={() => <About user={user} />} />
-        <Route exact path="/users" component={() => <Users user={user} />} />
+        <Route exact path="/login" component={() => <Login user={user}/>} />
+        <PrivateRoute exact path="/" component={() => <Home user={user} />} user={user}/>
+        <PrivateRoute exact path="/about" component={() => <About user={user} />} user={user}/>
+        <PrivateRoute exact path="/users" component={() => <Users user={user} />} user={user}/>
       </Switch>
     </div>
   );

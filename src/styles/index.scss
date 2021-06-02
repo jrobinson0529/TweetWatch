@@ -1,11 +1,12 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import 'login';
 @import 'variables';
 
 #root {
   color: white;
-  background-color: black;
+  background-color: #2F3D63;
 }
 body {
   height: 100vh;
-  background-color: $favColor !important;
+  background-color: $mainBackgroundColor !important;
 }
