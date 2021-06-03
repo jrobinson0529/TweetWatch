@@ -12,3 +12,13 @@
 .menu-item-dropdown {
   float: right;
 }
+.nav-footer {
+  margin-top: 55%;
+  .nav-footer-link {
+    text-decoration: none;
+    color: inherit;
+  }
+  .nav-footer-link:hover {
+    color: rgba(0, 0, 0, 0.664)
+  }
+}
