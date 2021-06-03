@@ -6,9 +6,7 @@ import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
 
 function App() {
-  // When you set up firebase add setUser method and change useState to null.
   const [user, setUser] = useState(null);
-  // Checking if MomentJS is working
   // Checking for authenticated users. You must set up firebase authentication for this to work!
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -16,7 +14,8 @@ function App() {
         const userInfo = {
           fullName: authed.displayName,
           username: authed.email.split('@gmail.com')[0],
-          uid: authed.uid
+          uid: authed.uid,
+          profileImage: authed.photoURL
         };
         setUser(userInfo);
       } else if (user || user === null) {

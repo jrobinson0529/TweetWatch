@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Home({ time }) {
+function Home() {
   return (
     <>
       <h1>Welcome to home</h1>
-      <h3>{time}</h3>
     </>
   );
 }
