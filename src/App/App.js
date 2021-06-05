@@ -4,6 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import './App.scss';
 import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
+import FriendsList from '../components/FriendsList';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -27,6 +28,7 @@ function App() {
     <div className='App'>
      <Router>
         <NavBar user={user}/>
+        <FriendsList user={user}/>
         <Routes user={user}/>
       </Router>
     </div>
