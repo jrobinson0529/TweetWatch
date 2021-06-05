@@ -55,9 +55,9 @@ function Category() {
       <Button color='twitter'>
       <Icon name='twitter' /> Add Tweeter
       </Button>
-      <div style={{ margin: '20px' }}>
+      <Label.Group style={{ margin: '20px' }}>
         {tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />)}
-      </div>
+      </Label.Group>
       <Feed />
     </>
   );
