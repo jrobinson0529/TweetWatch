@@ -1,13 +1,17 @@
 @import "~@fortawesome/fontawesome-free/css/all.min.css";
 @import 'navbar';
 @import 'login';
-@import 'variables';
+@import '../App/App';
+@import '_variables';
+
 
 #root {
+  font-family: $mainFont;
   color: black;
   background-color: #2F3D63;
 }
 body {
+  font-family: $mainFont;
   height: 100vh;
   background-color: $mainBackgroundColor !important;
 }
