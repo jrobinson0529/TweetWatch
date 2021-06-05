@@ -28,16 +28,19 @@ const NavMenu = ({ user }) => {
       id: '1141414141515',
       title: 'Burgers',
       iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
+      favorite: true,
     },
     {
       id: '12312313213314',
       title: 'Vegetarian',
       iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
+      favorite: false,
     },
     {
       id: '1155555',
       title: 'Dinner',
       iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
+      favorite: false,
     }
   ]);
 
@@ -101,7 +104,7 @@ const NavMenu = ({ user }) => {
     );
   };
 
-  const TopicCard = ({ ...topicInfo }) => {
+  const TopicCard = ({ i, ...topicInfo }) => {
     const handleClick = (type) => {
       switch (type) {
         case 'edit':
@@ -109,6 +112,9 @@ const NavMenu = ({ user }) => {
           break;
         case 'delete':
           console.warn('you clicked delete');
+          break;
+        case 'favorite':
+          console.warn('favorited this post');
           break;
         default:
       }
@@ -121,7 +127,7 @@ const NavMenu = ({ user }) => {
         active={activeTopic.activeTopic === topicInfo.title }
         onClick={handleTopicClick}
       >
-      <Image circular avatar floated='left' src={topicInfo.iconUrl} className='menu-item-image'/>
+      <Icon name={topicInfo.favorite ? 'star' : 'outline star'} color='yellow' className='menu-item-favorite-icon' onClick={() => handleClick('favorite')}/>
       {topicInfo.title}
       <Dropdown icon='ellipsis vertical' pointing='left' className='menu-item-dropdown'>
                   <Dropdown.Menu>
@@ -133,7 +139,9 @@ const NavMenu = ({ user }) => {
    </Menu.Item>
     );
   };
-
+  TopicCard.propTypes = {
+    i: PropTypes.number,
+  };
   return (
       <Menu vertical fixed='left' className='nav-menu'>
         <div>
@@ -155,7 +163,7 @@ const NavMenu = ({ user }) => {
 
         <Menu.Item>
           <Menu.Header className='topic-header'>Topics <Link to='/create-topic' style={{ textDecoration: 'none' }}><Icon name='plus circle' color='blue'/></Link></Menu.Header>
-            {topics.map((topicInfo) => <TopicCard key={topicInfo.id} {...topicInfo}/>)}
+            {topics.map((topicInfo, i) => <TopicCard key={topicInfo.id} i={i} {...topicInfo}/>)}
           </Menu.Item>
           <div className='nav-footer'>
             <p><a href='https://github.com/jrobinson0529/TweetWatch#readme' className='nav-footer-link'>About</a> &#8226; <a href='https://twitter.com/Jesserobinsons' className='nav-footer-link'>Contact</a></p>
@@ -173,6 +181,7 @@ const NavBar = ({ user }) => {
     </div>
   );
 };
+
 NavBar.propTypes = {
   user: PropTypes.any
 };
