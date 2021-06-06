@@ -1,9 +1,12 @@
 import React from 'react';
+import CategoryForm from '../components/CategoryForm';
+import PageHeader from '../components/PageHeader';
 
 function CreateCategory() {
   return (
     <div>
-      <h1>Create Category View</h1>
+      <PageHeader headTitle='Create a new category' description='' />
+      <CategoryForm />
     </div>
   );
 }
