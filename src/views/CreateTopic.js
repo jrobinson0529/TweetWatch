@@ -1,9 +1,12 @@
 import React from 'react';
+import PageHeader from '../components/PageHeader';
+import TopicForm from '../components/TopicForm';
 
 function CreateTopic() {
   return (
     <div>
-      <h1>Create Topic View</h1>
+      <PageHeader headTitle='Create a new topic' description='' />
+      <TopicForm />
     </div>
   );
 }
