@@ -1,49 +1,23 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Dropdown, Header, Icon, Image, Label, Menu
+  Dropdown, Header, Icon, Image, Label, Loader, Menu
 } from 'semantic-ui-react';
 import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
 import { signOutUser } from '../helpers/auth';
+import { getCategoryTopics, getUserCategories } from '../helpers/data/categoryData';
 
 const NavMenu = ({ user }) => {
   const history = useHistory();
+  const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState({});
   const [activeTopic, setActiveTopic] = useState({});
-  const [categories] = useState([
-    {
-      id: '12415115',
-      title: 'Gaming',
-      iconUrl: 'https://images.pexels.com/photos/3165335/pexels-photo-3165335.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-    },
-    {
-      id: '12413314',
-      title: 'Food',
-      iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
-    }
-  ]);
-  const [topics] = useState([
-    {
-      id: '1141414141515',
-      title: 'Burgers',
-      iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
-      favorite: true,
-    },
-    {
-      id: '12312313213314',
-      title: 'Vegetarian',
-      iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
-      favorite: false,
-    },
-    {
-      id: '1155555',
-      title: 'Dinner',
-      iconUrl: 'https://upload.wikimedia.org/wikipedia/commons/6/6d/Good_Food_Display_-_NCI_Visuals_Online.jpg',
-      favorite: false,
-    }
-  ]);
-
+  const [categories, setCategories] = useState([]);
+  const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    getUserCategories(user.uid).then(setCategories);
+  }, []);
   const handleAccountInfoDropdownClick = (type) => {
     switch (type) {
       case 'profile':
@@ -64,7 +38,12 @@ const NavMenu = ({ user }) => {
 
   const handleCategoryClick = (e, { name }) => {
     setActiveCategory({ activeCategory: name });
+    setLoading(true);
     history.push(`/category/${e.target.id}`);
+    getCategoryTopics(e.target.id).then((response) => {
+      setTopics(response);
+      setLoading(false);
+    });
   };
 
   const handleTopicClick = (e, { name }) => {
@@ -142,12 +121,12 @@ const NavMenu = ({ user }) => {
   TopicCard.propTypes = {
     i: PropTypes.number,
   };
-  return (
-      <Menu vertical fixed='left' className='nav-menu'>
+  const MenuContent = () => (
+    <>
         <div>
           <Link to='/'><Image src={user.profileImage} avatar size='tiny' className='navbar-profile-image'/></Link>
           <Header color='black'>{user.username}</Header>
-          <Dropdown text='Account Info' pointing='left'>
+          <Dropdown text='Account Info' pointing='down'>
             <Dropdown.Menu>
               <Dropdown.Item text='Profile' icon='user' onClick={() => handleAccountInfoDropdownClick('profile')}/>
               <Dropdown.Item text='Saved Tweets' icon='book' onClick={() => handleAccountInfoDropdownClick('savedTweets')}/>
@@ -165,6 +144,13 @@ const NavMenu = ({ user }) => {
           <Menu.Header className='topic-header'>Topics <Link to='/create-topic' style={{ textDecoration: 'none' }}><Icon name='plus circle' color='blue'/></Link></Menu.Header>
             {topics.map((topicInfo, i) => <TopicCard key={topicInfo.id} i={i} {...topicInfo}/>)}
           </Menu.Item>
+          </>
+  );
+
+  return (
+      <Menu vertical fixed='left' className='nav-menu'>
+                      <MenuContent />
+                          <Loader active={loading && true}/>
           <div className='nav-footer'>
             <p><a href='https://github.com/jrobinson0529/TweetWatch#readme' className='nav-footer-link'>About</a> &#8226; <a href='https://twitter.com/Jesserobinsons' className='nav-footer-link'>Contact</a></p>
            <Image src={twLogo} centered/>
@@ -176,9 +162,13 @@ const NavMenu = ({ user }) => {
 const NavBar = ({ user }) => {
   console.warn(user);
   return (
-    <div className='nav-container'>
-      { user && <NavMenu user={user}/>}
-    </div>
+    <>
+    { user
+       && <div className='nav-container'>
+            <NavMenu user={user} />
+          </div>
+    }
+    </>
   );
 };
 

@@ -6,6 +6,9 @@
   margin: 20px !important;
 }
 .nav-menu {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  overflow-y: scroll!important;
   width: 15% !important;
   min-width: 18em !important;
 }
@@ -13,7 +16,10 @@
   float: right;
 }
 .nav-footer {
-  margin-top: 55%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-top: 10%;
+  margin-bottom: 20px;
   .nav-footer-link {
     text-decoration: none;
     color: inherit;
