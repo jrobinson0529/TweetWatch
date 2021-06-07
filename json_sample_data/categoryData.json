@@ -1,0 +1,30 @@
+{
+    "-Mbb52Q93IB7cmveEkkI": {
+      "id": "-Mbb52Q93IB7cmveEkkI",
+      "title": "paradigm",
+      "iconUrl": "http://dummyimage.com/54x70.png/cc0000/ffffff",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QBYNhgMf6cCSfP": {
+      "id": "-Mbb52QBYNhgMf6cCSfP",
+      "title": "Optional",
+      "iconUrl": "http://dummyimage.com/93x85.png/dddddd/000000",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QDgG01BTHKaZEU": {
+      "id": "-Mbb52QDgG01BTHKaZEU",
+      "title": "transitional",
+      "iconUrl": "http://dummyimage.com/84x72.png/cc0000/ffffff",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QE05gaXv8bcixx": {
+      "id": "-Mbb52QE05gaXv8bcixx",
+      "title": "Persistent",
+      "iconUrl": "http://dummyimage.com/96x75.png/cc0000/ffffff",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    }
+}
