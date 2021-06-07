@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
+import { Button } from 'semantic-ui-react';
 
 function Feed() {
   const [tweetArray] = useState([
@@ -13,14 +14,17 @@ function Feed() {
 
   return (
     <div style={{
-      width: '75%',
+      width: '50%',
       marginLeft: 'auto',
       marginRight: 'auto',
       display: 'flex',
       flexDirection: 'column',
       alignItems: 'center'
     }}>
-        {tweetArray.map((tweet) => <TwitterTweetEmbed key={tweet} tweetId={tweet} style={{ maxWidth: '100%!important' }}/>)
+        {tweetArray.map((tweet) => <div key={tweet} className='tweet-card'>
+            <TwitterTweetEmbed tweetId={tweet} className='tweet-embed-card'/>
+            <Button>Save Tweet</Button>
+          </div>)
         }
     </div>
   );
