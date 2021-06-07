@@ -12,8 +12,13 @@ const getCategoryTopics = (categoryId) => new Promise((resolve, reject) => {
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
-
+const getCategoryTweeters = (categoryId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/tweeters.json?orderBy="categoryId"&equalTo="${categoryId}"`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 export {
   getUserCategories,
-  getCategoryTopics
+  getCategoryTopics,
+  getCategoryTweeters
 };
