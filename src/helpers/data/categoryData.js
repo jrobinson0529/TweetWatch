@@ -18,13 +18,14 @@ const getCategoryTweeters = (categoryId) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-const getSingleTopic = (topicId) => new Promise((resolve, reject) => {
-  axios.get(`${dbUrl}/topics/${topicId}.json`)
+const getSingleCategory = (categoryId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/category/${categoryId}.json`)
     .then((response) => resolve((response.data)))
     .catch((error) => reject(error));
 });
 export {
   getUserCategories,
   getCategoryTopics,
-  getCategoryTweeters
+  getCategoryTweeters,
+  getSingleCategory
 };

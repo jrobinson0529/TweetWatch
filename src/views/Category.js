@@ -3,17 +3,14 @@ import { useParams } from 'react-router-dom';
 import { Button, Icon, Label } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
-import { getCategoryTweeters } from '../helpers/data/categoryData';
-import getTweeterInfo from '../helpers/data/tweeterData';
+import { getCategoryTweeterInfo } from '../helpers/data/tweeterData';
 
 function Category() {
   const { id } = useParams();
   // const [category, setCategory] = useState()
   const [tweeters, setTweeters] = useState([]);
   useEffect(() => {
-    getCategoryTweeters(id).then((response) => {
-      getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then((tweeterInfo) => setTweeters(tweeterInfo));
-    });
+    getCategoryTweeterInfo(id).then(setTweeters);
   }, []);
   const TweeterCard = ({ ...tweeterInfo }) => (
     <Label image size='big'>
