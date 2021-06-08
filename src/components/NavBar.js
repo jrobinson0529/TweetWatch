@@ -72,7 +72,7 @@ const NavMenu = ({ user }) => {
             >
             <Image circular avatar floated='left' src={categoryInfo.iconUrl} className='menu-item-image'/>
             {categoryInfo.title}
-            <Dropdown icon='ellipsis vertical' pointing='left' className='menu-item-dropdown'>
+            <Dropdown icon='ellipsis vertical' className='menu-item-dropdown'>
                   <Dropdown.Menu>
                     <Dropdown.Item text='Edit' icon='edit' onClick={() => handleClick('edit')}/>
                     <Dropdown.Item text='Delete' icon='delete' onClick={() => handleClick('delete')}/>
@@ -126,7 +126,7 @@ const NavMenu = ({ user }) => {
         <div>
           <Link to='/'><Image src={user.profileImage} avatar size='tiny' className='navbar-profile-image'/></Link>
           <Header color='black'>{user.username}</Header>
-          <Dropdown text='Account Info' pointing='down'>
+          <Dropdown text='Account Info' pointing="left">
             <Dropdown.Menu>
               <Dropdown.Item text='Profile' icon='user' onClick={() => handleAccountInfoDropdownClick('profile')}/>
               <Dropdown.Item text='Saved Tweets' icon='book' onClick={() => handleAccountInfoDropdownClick('savedTweets')}/>

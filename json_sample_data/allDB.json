@@ -2,7 +2,7 @@
   "categories": {
     "-Mbb52Q93IB7cmveEkkI": {
       "id": "-Mbb52Q93IB7cmveEkkI",
-      "title": "paradigm",
+      "title": "Food",
       "iconUrl": "http://dummyimage.com/54x70.png/cc0000/ffffff",
       "description": "This is a description for a category ipsum",
       "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
@@ -23,9 +23,9 @@
     },
     "-Mbb52QE05gaXv8bcixx": {
       "id": "-Mbb52QE05gaXv8bcixx",
-      "title": "Persistent",
+      "title": "Food",
       "iconUrl": "http://dummyimage.com/96x75.png/cc0000/ffffff",
-      "description": "This is a description for a category ipsum",
+      "description": "Trying to find decent recipes",
       "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     }
   },
@@ -119,6 +119,32 @@
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
       "searchParams": ["test", "choice", "programming"],
       "favorite": false
+    },
+    "-Mbb6-JrCBUzAD0ar14Sd": {
+      "id": "-Mbb6-JrCBUzAD0ar14Sd",
+      "title": "Burgers",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QE05gaXv8bcixx",
+      "searchParams": ["recipe", "burger"],
+      "favorite": false
+    }
+  },
+  "tweeters": {
+    "-Ar17alvj238t8ufm" : {
+      "id": "-Ar17alvj238t8ufm",
+      "twitterId": "GordonRamsay",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Ar1j23r093jn0101" : {
+      "id": "-Ar1j23r093jn0101",
+      "twitterId": "BurgerKing",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Arasdfaedf1231151sa" : {
+      "id": "-Arasdfaedf1231151sa",
+      "twitterId": "BurgerUP",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
     }
   }
 }

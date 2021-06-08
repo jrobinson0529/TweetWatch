@@ -88,5 +88,14 @@
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
       "searchParams": ["test", "choice", "programming"],
       "favorite": false
+    },
+    "-Mbb6-JrCBUzAD0ar14Sd": {
+      "id": "-Mbb6-JrCBUzAD0ar14Sd",
+      "title": "Burgers",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QE05gaXv8bcixx",
+      "searchParams": ["recipe", "burger"],
+      "favorite": false
     }
 }
