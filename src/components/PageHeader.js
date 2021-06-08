@@ -12,7 +12,7 @@ function PageHeader({ headTitle, description }) {
   );
 }
 PageHeader.propTypes = {
-  headTitle: PropTypes.string.isRequired,
-  description: PropTypes.string,
+  headTitle: PropTypes.string,
+  description: PropTypes.string
 };
 export default PageHeader;

@@ -8,6 +8,7 @@ import getTweeterInfo from '../helpers/data/tweeterData';
 
 function Category() {
   const { id } = useParams();
+  // const [category, setCategory] = useState()
   const [tweeters, setTweeters] = useState([]);
   useEffect(() => {
     getCategoryTweeters(id).then((response) => {
