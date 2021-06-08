@@ -8,10 +8,10 @@ import getTweeterInfo from '../helpers/data/tweeterData';
 
 function Category() {
   const { id } = useParams();
-  const [tweeters] = useState([]);
+  const [tweeters, setTweeters] = useState([]);
   useEffect(() => {
     getCategoryTweeters(id).then((response) => {
-      getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then((tweeterInfo) => console.warn(tweeterInfo));
+      getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then((tweeterInfo) => setTweeters(tweeterInfo));
     });
   }, []);
   const TweeterCard = ({ ...tweeterInfo }) => (
