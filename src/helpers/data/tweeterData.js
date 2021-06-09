@@ -5,7 +5,7 @@ import { twitterConfig } from '../apiKeys';
 import { getCategoryTweeters } from './categoryData';
 
 const { bearerToken } = twitterConfig;
-const corsProxy = 'https://green-star-5960.jesse0529robinson.workers.dev/?';
+const corsProxy = 'https://salty-wildwood-25813.herokuapp.com/';
 const getTweeterInfo = (usernames) => new Promise((resolve, reject) => {
   axios.get(`${corsProxy}https://api.twitter.com/2/users/by?usernames=${usernames}&user.fields=id,name,profile_image_url,protected,username,verified`, {
     headers: {

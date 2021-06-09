@@ -7,10 +7,11 @@ import PageHeader from '../components/PageHeader';
 import { getCategoryTopics, getSingleCategory } from '../helpers/data/categoryData';
 import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
 
-function Category({ tweets, setTweets }) {
+function Category() {
   const { id } = useParams();
   const [category, setCategory] = useState({});
   const [tweeters, setTweeters] = useState([]);
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     const paramArray = [];
     Promise.all([getSingleCategory(id), getCategoryTweeterInfo(id), getCategoryTopics(id)])
