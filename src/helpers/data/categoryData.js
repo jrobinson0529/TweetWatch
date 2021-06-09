@@ -17,8 +17,15 @@ const getCategoryTweeters = (categoryId) => new Promise((resolve, reject) => {
     .then((response) => resolve(Object.values(response.data)))
     .catch((error) => reject(error));
 });
+
+const getSingleCategory = (categoryId) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/categories/${categoryId}.json`)
+    .then((response) => resolve((response.data)))
+    .catch((error) => reject(error));
+});
 export {
   getUserCategories,
   getCategoryTopics,
-  getCategoryTweeters
+  getCategoryTweeters,
+  getSingleCategory
 };

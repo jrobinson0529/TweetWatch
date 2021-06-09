@@ -2,9 +2,9 @@
   "categories": {
     "-Mbb52Q93IB7cmveEkkI": {
       "id": "-Mbb52Q93IB7cmveEkkI",
-      "title": "Food",
-      "iconUrl": "http://dummyimage.com/54x70.png/cc0000/ffffff",
-      "description": "This is a description for a category ipsum",
+      "title": "Programming",
+      "iconUrl": "https://www.bairesdev.com/wp-content/uploads/2020/10/Top-100-programming-languages.jpg",
+      "description": "Trying to find programming related news",
       "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb52QBYNhgMf6cCSfP": {
@@ -32,38 +32,38 @@
   "topics": {
     "-Mbb6-JbhXOz83VrPmXS": {
       "id": "-Mbb6-JbhXOz83VrPmXS",
-      "title": "Centralized",
+      "title": "Javascript",
       "iconUrl": "http://dummyimage.com/70x96.png/dddddd/000000",
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
-      "searchParams": ["test", "choice", "programming"],
+      "searchParams": ["javascript", "js", "jquery", "programming"],
       "favorite": false
     },
     "-Mbb6-JdIgl81xthrxLd": {
       "id": "-Mbb6-JdIgl81xthrxLd",
-      "title": "Organic",
+      "title": "React",
       "iconUrl": "http://dummyimage.com/94x66.png/dddddd/000000",
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
-      "searchParams": ["test", "choice", "programming"],
+      "searchParams": ["react"],
       "favorite": false
     },
     "-Mbb6-JfT13XT3LHPtFa": {
       "id": "-Mbb6-JfT13XT3LHPtFa",
-      "title": "projection",
+      "title": "Jobs",
       "iconUrl": "http://dummyimage.com/52x89.png/5fa2dd/ffffff",
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
-      "searchParams": ["test", "choice", "programming"],
+      "searchParams": ["dev", "developer", "programming", "jobs"],
       "favorite": false
     },
     "-Mbb6-JhXSJGgpcyWO25": {
       "id": "-Mbb6-JhXSJGgpcyWO25",
-      "title": "Total",
+      "title": "Idk",
       "iconUrl": "http://dummyimage.com/72x89.png/ff4444/ffffff",
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
-      "searchParams": ["test", "choice", "programming"],
+      "searchParams": ["test", "development", "programming", "meet"],
       "favorite": false
     },
     "-Mbb6-JjrTKzEiJJ33Wm": {
@@ -128,6 +128,15 @@
       "categoryId": "-Mbb52QE05gaXv8bcixx",
       "searchParams": ["recipe", "burger"],
       "favorite": false
+    },
+    "-Mbb6-JrCadfasdfadsfdsf": {
+      "id": "-Mbb6-JrCadfasdfadsfdsf",
+      "title": "Salads",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QE05gaXv8bcixx",
+      "searchParams": ["salad", "vegetarian", "healthy"],
+      "favorite": true
     }
   },
   "tweeters": {
@@ -141,10 +150,25 @@
       "twitterId": "BurgerKing",
       "categoryId": "-Mbb52QE05gaXv8bcixx"
     },
-    "-Arasdfaedf1231151sa" : {
-      "id": "-Arasdfaedf1231151sa",
-      "twitterId": "BurgerUP",
+    "-Arasaa91943fadfadf13241" : {
+      "id": "-Arasaa91943fadfadf13241",
+      "twitterId": "Wendys",
       "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Arasdfaedf11sa" : {
+      "id": "-Arasdfaedf11sa",
+      "twitterId": "reactjs",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Arasop13915091u59151sa" : {
+      "id": "-Arasop13915091u59151sa",
+      "twitterId": "PR0GRAMMERHUM0R",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Aqowieuroi2uroi12415" : {
+      "id": "-Aqowieuroi2uroi12415",
+      "twitterId": "NashSoftware",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
     }
   }
 }
