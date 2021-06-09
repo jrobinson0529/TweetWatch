@@ -19,7 +19,7 @@ function Topic() {
         getUserTweetsFiltered(x.map((tweeterInfo) => tweeterInfo.username), response.searchParams).then(setTweets);
       });
     });
-  }, []);
+  }, [id]);
   return (
     <>
       <PageHeader headTitle={topic.title} description={topic.description}/>

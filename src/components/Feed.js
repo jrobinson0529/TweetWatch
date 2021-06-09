@@ -22,7 +22,7 @@ function Feed({ tweets }) {
   );
 }
 Feed.propTypes = {
-  tweets: PropTypes.array.isRequired,
+  tweets: PropTypes.array
 };
 
 export default Feed;

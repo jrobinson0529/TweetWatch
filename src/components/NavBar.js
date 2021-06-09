@@ -159,9 +159,7 @@ const NavMenu = ({ user }) => {
   );
 };
 
-const NavBar = ({ user }) => {
-  console.warn(user);
-  return (
+const NavBar = ({ user }) => (
     <>
     { user
        && <div className='nav-container'>
@@ -169,8 +167,7 @@ const NavBar = ({ user }) => {
           </div>
     }
     </>
-  );
-};
+);
 
 NavBar.propTypes = {
   user: PropTypes.any
