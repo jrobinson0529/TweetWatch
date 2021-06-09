@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import Home from '../views/Home';
@@ -15,13 +15,14 @@ import FavoriteTopics from '../views/FavoriteTopics';
 import Profile from '../views/Profile';
 
 function Routes({ user }) {
+  const [tweets, setTweets] = useState([]);
   return (
     <div>
       <Switch>
         <Route exact path="/login" component={() => <Login user={user}/>} />
         <PrivateRoute exact path="/" component={() => <Home user={user} />} user={user}/>
-        <PrivateRoute exact path="/category/:id" component={() => <Category user={user} />} user={user}/>
-        <PrivateRoute exact path="/topic/:id" component={() => <Topic user={user} />} user={user}/>
+        <PrivateRoute exact path="/category/:id" component={() => <Category user={user} tweets={tweets} setTweets={setTweets}/>} user={user}/>
+        <PrivateRoute exact path="/topic/:id" component={() => <Topic user={user} tweets={tweets} setTweets={setTweets}/>} user={user}/>
         <PrivateRoute exact path="/create-category" component={() => <CreateCategory user={user} />} user={user}/>
         <PrivateRoute exact path="/create-topic" component={() => <CreateTopic user={user} />} user={user}/>
         <PrivateRoute exact path="/edit-category/:id" component={() => <EditCategory user={user} />} user={user}/>

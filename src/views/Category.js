@@ -1,18 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { Button, Icon, Label } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
-import { getSingleCategory } from '../helpers/data/categoryData';
-import { getCategoryTweeterInfo } from '../helpers/data/tweeterData';
+import { getCategoryTopics, getSingleCategory } from '../helpers/data/categoryData';
+import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
 
-function Category() {
+function Category({ tweets, setTweets }) {
   const { id } = useParams();
   const [category, setCategory] = useState({});
   const [tweeters, setTweeters] = useState([]);
   useEffect(() => {
-    getSingleCategory(id).then(setCategory);
-    getCategoryTweeterInfo(id).then(setTweeters);
+    const paramArray = [];
+    Promise.all([getSingleCategory(id), getCategoryTweeterInfo(id), getCategoryTopics(id)])
+      .then((response) => {
+        setCategory(response[0]);
+        setTweeters(response[1]);
+        response[2].forEach((object) => paramArray.push(...object.searchParams));
+        const tweeterUsernames = response[1].map((tweeter) => tweeter.username);
+        getUserTweetsFiltered(tweeterUsernames, paramArray).then(setTweets);
+      });
   }, [id]);
   const TweeterCard = ({ ...tweeterInfo }) => (
     <Label image size='big'>
@@ -32,9 +40,13 @@ function Category() {
       <Label.Group style={{ margin: '20px' }}>
         {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <h3>Add Tweeters to start Tracking!</h3> }
       </Label.Group>
-      <Feed />
+      <Feed tweets={tweets}/>
     </>
   );
 }
+Category.propTypes = {
+  tweets: PropTypes.array,
+  setTweets: PropTypes.func,
+};
 
 export default Category;

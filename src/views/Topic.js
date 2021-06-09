@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import { Label } from 'semantic-ui-react';
 import Feed from '../components/Feed';
@@ -6,12 +7,11 @@ import PageHeader from '../components/PageHeader';
 import getSingleTopic from '../helpers/data/topicData';
 import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
 
-function Topic() {
+function Topic({ tweets, setTweets }) {
   const { id } = useParams();
   const [topic, setTopic] = useState({
     searchParams: []
   });
-  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     getSingleTopic(id).then((response) => {
       setTopic(response);
@@ -30,5 +30,8 @@ function Topic() {
     </>
   );
 }
-
+Topic.propTypes = {
+  tweets: PropTypes.array,
+  setTweets: PropTypes.func,
+};
 export default Topic;
