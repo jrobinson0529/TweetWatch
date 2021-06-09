@@ -11,11 +11,12 @@ function Topic() {
   const [topic, setTopic] = useState({
     searchParams: []
   });
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     getSingleTopic(id).then((response) => {
       setTopic(response);
       getCategoryTweeterInfo(response.categoryId).then((x) => {
-        getUserTweetsFiltered(x.map((tweeterInfo) => tweeterInfo.username), response.searchParams);
+        getUserTweetsFiltered(x.map((tweeterInfo) => tweeterInfo.username), response.searchParams).then(setTweets);
       });
     });
   }, []);
@@ -25,7 +26,7 @@ function Topic() {
       <Label.Group className='topic-label-container' color='teal' size='large'>
         {topic.searchParams.map((string, i) => <Label key={i} content={string}/>)}
       </Label.Group>
-      <Feed />
+      <Feed tweets={tweets}/>
     </>
   );
 }

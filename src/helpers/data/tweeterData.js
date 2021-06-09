@@ -37,17 +37,18 @@ const contains = (target, pattern) => {
   });
   return (value === 1);
 };
-const getUserTweetsFiltered = (usernames, searchParams) => new Promise(() => {
+const getUserTweetsFiltered = (usernames, searchParams) => new Promise((resolve, reject) => {
   const mappedPromises = usernames.map((username) => getUserTweets(username));
   Promise.all(mappedPromises).then((response) => {
-    // const filteredTweetsArray = [];
+    let filteredTweetsArray = [];
     const removeEmptyResponseArray = response.filter((array) => array.length > 1);
     const tweetObjectArrays = removeEmptyResponseArray.map((array) => array[0]);
     const tweets = tweetObjectArrays.map((array) => array.map((tweet) => tweet));
     const filteredTweets = tweets.map((array) => array.filter((tweet) => contains(tweet.text.toLowerCase(), searchParams)));
-    console.warn(filteredTweets);
-  });
-  console.warn(searchParams.join());
+    filteredTweets.forEach((array) => filteredTweetsArray.push(...array));
+    filteredTweetsArray = filteredTweetsArray.map((tweet) => tweet.id);
+    resolve(filteredTweetsArray);
+  }).catch((error) => reject(error));
 });
 
 export {
