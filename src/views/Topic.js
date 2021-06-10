@@ -7,11 +7,12 @@ import PageHeader from '../components/PageHeader';
 import getSingleTopic from '../helpers/data/topicData';
 import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
 
-function Topic({ tweets, setTweets }) {
+function Topic() {
   const { id } = useParams();
   const [topic, setTopic] = useState({
     searchParams: []
   });
+  const [tweets, setTweets] = useState([]);
   useEffect(() => {
     getSingleTopic(id).then((response) => {
       setTopic(response);

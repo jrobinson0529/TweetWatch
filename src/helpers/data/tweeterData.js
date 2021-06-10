@@ -22,7 +22,7 @@ const getCategoryTweeterInfo = (categoryId) => new Promise((resolve, reject) => 
   });
 });
 const getUserTweets = (username) => new Promise((resolve, reject) => {
-  axios.get(`${corsProxy}https://api.twitter.com/2/tweets/search/recent?query=from:${username}&max_results=100`, {
+  axios.get(`${corsProxy}https://api.twitter.com/2/tweets/search/recent?query=from:${username}&max_results=25`, {
     headers: {
       "Authorization": `Bearer ${bearerToken}`
     }

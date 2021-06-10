@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Button } from 'semantic-ui-react';
 
 function Feed({ tweets }) {
@@ -13,7 +14,7 @@ function Feed({ tweets }) {
       alignItems: 'center'
     }}>
         {tweets?.map((tweet) => <div key={tweet} className='tweet-card'>
-           <h1>{tweet}</h1>;
+            <TwitterTweetEmbed tweetId={tweet} className='tweet-embed-card'/>
             <Button>Save Tweet</Button>
           </div>)
         }
