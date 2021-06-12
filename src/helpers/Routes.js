@@ -14,7 +14,11 @@ import SavedTweets from '../views/SavedTweets';
 import FavoriteTopics from '../views/FavoriteTopics';
 import Profile from '../views/Profile';
 
-function Routes({ user }) {
+function Routes({
+  user,
+  setCategories,
+  setTopics
+}) {
   return (
     <div>
       <Switch>
@@ -22,8 +26,8 @@ function Routes({ user }) {
         <PrivateRoute exact path="/" component={() => <Home user={user} />} user={user}/>
         <PrivateRoute exact path="/category/:id" component={() => <Category user={user} />} user={user}/>
         <PrivateRoute exact path="/topic/:id" component={() => <Topic user={user} />} user={user}/>
-        <PrivateRoute exact path="/create-category" component={() => <CreateCategory user={user} />} user={user}/>
-        <PrivateRoute exact path="/create-topic" component={() => <CreateTopic user={user} />} user={user}/>
+        <PrivateRoute exact path="/create-category" component={() => <CreateCategory user={user} setCategories={setCategories}/>} user={user}/>
+        <PrivateRoute exact path="/create-topic" component={() => <CreateTopic user={user} setTopics={setTopics}/>} user={user}/>
         <PrivateRoute exact path="/edit-category/:id" component={() => <EditCategory user={user} />} user={user}/>
         <PrivateRoute exact path="/edit-topic/:id" component={() => <EditTopic user={user} />} user={user}/>
         <PrivateRoute exact path="/saved-tweets" component={() => <SavedTweets uid={user.uid} />} user={user}/>
@@ -35,6 +39,9 @@ function Routes({ user }) {
 }
 Routes.propTypes = {
   user: PropTypes.any,
-  time: PropTypes.string,
+  categories: PropTypes.array,
+  setCategories: PropTypes.func,
+  topics: PropTypes.array,
+  setTopics: PropTypes.func,
 };
 export default Routes;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
   Dropdown, Header, Icon, Image, Label, Loader, Menu
@@ -6,18 +6,18 @@ import {
 import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
 import { signOutUser } from '../helpers/auth';
-import { getCategoryTopics, getUserCategories } from '../helpers/data/categoryData';
+import { getCategoryTopics } from '../helpers/data/categoryData';
 
-const NavMenu = ({ user }) => {
+const NavMenu = ({
+  user,
+  categories,
+  topics,
+  setTopics,
+}) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
   const [activeCategory, setActiveCategory] = useState({});
   const [activeTopic, setActiveTopic] = useState({});
-  const [categories, setCategories] = useState([]);
-  const [topics, setTopics] = useState([]);
-  useEffect(() => {
-    getUserCategories(user.uid).then(setCategories);
-  }, []);
   const handleAccountInfoDropdownClick = (type) => {
     switch (type) {
       case 'profile':
@@ -121,8 +121,9 @@ const NavMenu = ({ user }) => {
   TopicCard.propTypes = {
     i: PropTypes.number,
   };
-  const MenuContent = () => (
-    <>
+  return (
+      <Menu vertical fixed='left' className='nav-menu'>
+                      <>
         <div>
           <Link to='/'><Image src={user.profileImage} avatar size='tiny' className='navbar-profile-image'/></Link>
           <Header color='black'>{user.username}</Header>
@@ -145,11 +146,6 @@ const NavMenu = ({ user }) => {
             {topics.map((topicInfo, i) => <TopicCard key={topicInfo.id} i={i} {...topicInfo}/>)}
           </Menu.Item>
           </>
-  );
-
-  return (
-      <Menu vertical fixed='left' className='nav-menu'>
-                      <MenuContent />
                           <Loader active={loading && true}/>
           <div className='nav-footer'>
             <p><a href='https://github.com/jrobinson0529/TweetWatch#readme' className='nav-footer-link'>About</a> &#8226; <a href='https://twitter.com/Jesserobinsons' className='nav-footer-link'>Contact</a></p>
@@ -159,20 +155,35 @@ const NavMenu = ({ user }) => {
   );
 };
 
-const NavBar = ({ user }) => (
+const NavBar = ({
+  user,
+  categories,
+  setCategories,
+  topics,
+  setTopics,
+}) => (
     <>
     { user
        && <div className='nav-container'>
-            <NavMenu user={user} />
+            <NavMenu user={user} categories={categories} topics={topics} setCategories={setCategories} setTopics={setTopics}/>
           </div>
     }
     </>
 );
 
 NavBar.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  categories: PropTypes.array,
+  setCategories: PropTypes.func,
+  topics: PropTypes.array,
+  setTopics: PropTypes.func,
 };
 NavMenu.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
+  categories: PropTypes.array,
+  setCategories: PropTypes.func,
+  topics: PropTypes.array,
+  setTopics: PropTypes.func,
 };
+
 export default NavBar;

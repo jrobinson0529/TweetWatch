@@ -23,9 +23,17 @@ const getSingleCategory = (categoryId) => new Promise((resolve, reject) => {
     .then((response) => resolve((response.data)))
     .catch((error) => reject(error));
 });
+const createCategory = (categoryObject) => new Promise((resolve, reject) => {
+  axios.post(`${dbUrl}/categories.json`, categoryObject)
+    .then((response) => {
+      const body = { id: response.data.name };
+      axios.patch(`${dbUrl}/categories/${response.data.name}.json`, body).then((res) => resolve(res.data.id));
+    }).catch((error) => reject(error));
+});
 export {
   getUserCategories,
   getCategoryTopics,
   getCategoryTweeters,
-  getSingleCategory
+  getSingleCategory,
+  createCategory
 };

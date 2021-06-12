@@ -12,14 +12,17 @@ function Category() {
   const [category, setCategory] = useState({});
   const [tweeters, setTweeters] = useState([]);
   const [tweets, setTweets] = useState([]);
+
+  useEffect(() => {
+    getSingleCategory(id).then(setCategory);
+  }, [id]);
   useEffect(() => {
     const paramArray = [];
-    Promise.all([getSingleCategory(id), getCategoryTweeterInfo(id), getCategoryTopics(id)])
+    Promise.all([getCategoryTweeterInfo(id), getCategoryTopics(id)])
       .then((response) => {
-        setCategory(response[0]);
-        setTweeters(response[1]);
-        response[2].forEach((object) => paramArray.push(...object.searchParams));
-        const tweeterUsernames = response[1].map((tweeter) => tweeter.username);
+        setTweeters(response[0]);
+        response[1].forEach((object) => paramArray.push(...object.searchParams));
+        const tweeterUsernames = response[0].map((tweeter) => tweeter.username);
         getUserTweetsFiltered(tweeterUsernames, paramArray).then(setTweets);
       });
   }, [id]);
