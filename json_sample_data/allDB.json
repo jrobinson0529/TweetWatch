@@ -9,7 +9,7 @@
     },
     "-Mbb52QBYNhgMf6cCSfP": {
       "id": "-Mbb52QBYNhgMf6cCSfP",
-      "title": "Optional",
+      "title": "Dogs",
       "iconUrl": "http://dummyimage.com/93x85.png/dddddd/000000",
       "description": "This is a description for a category ipsum",
       "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
@@ -77,11 +77,11 @@
     },
     "-Mbb6-JlOsT3pPIqi_4e": {
       "id": "-Mbb6-JlOsT3pPIqi_4e",
-      "title": "algorithm",
+      "title": "Dogs",
       "iconUrl": "http://dummyimage.com/87x60.png/5fa2dd/ffffff",
       "description": "topic description here",
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
-      "searchParams": ["test", "choice", "programming"],
+      "searchParams": ["13/10"],
       "favorite": true
     },
     "-Mbb6-JnuCsaUS1AmGr8": {
@@ -169,6 +169,38 @@
       "id": "-Aqowieuroi2uroi12415",
       "twitterId": "NashSoftware",
       "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Aq12312445152uroi12415" : {
+      "id": "-Aq12312445152uroi12415",
+      "twitterId": "dog_rates",
+      "categoryId": "-Mbb52QBYNhgMf6cCSfP"
     }
-  }
+  },
+  "savedTweets" : {
+    "-Mc-r5bXXFSvtT2BWh4t": {
+      "id": "-Mc-r5bXXFSvtT2BWh4t",
+      "tweetId": "1400927883971895297",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5bYKBYlkjnVTQsU": {
+      "id": "-Mc-r5bYKBYlkjnVTQsU",
+      "tweetId": "1400724673558614020",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5bZZWZha60FTPfY": {
+      "id": "-Mc-r5bZZWZha60FTPfY",
+      "tweetId": "1400932950762532868",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5b_aKIsHX3i6Ly_": {
+      "id": "-Mc-r5b_aKIsHX3i6Ly_",
+      "tweetId": "1400494817168216066",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5ba_8u8gozgFOgI": {
+      "id": "-Mc-r5ba_8u8gozgFOgI",
+      "tweetId": "1399330043126484992",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    }
+  }  
 }
