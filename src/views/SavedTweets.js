@@ -1,27 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Button } from 'semantic-ui-react';
 import PageHeader from '../components/PageHeader';
+import getSavedTweets from '../helpers/data/savedTweetsData';
 
-function SavedTweets() {
-  const [tweetArray] = useState([
-    '1400927883971895297',
-    '1400724673558614020',
-    '1400932950762532868',
-    '1400494817168216066',
-    '1399330043126484992',
-    '1401184173264707590'
-  ]);
+function SavedTweets({ uid }) {
+  const [savedTweets, setSavedTweets] = useState([]);
+  useEffect(() => {
+    getSavedTweets(uid).then(setSavedTweets);
+  }, []);
 
   return (
     <div>
      <PageHeader headTitle='Saved Tweets' description='View these for later'/>
      <div className='saved-tweet-container'>
-      {tweetArray.map((tweetId) => <div key={tweetId}><TwitterTweetEmbed tweetId={tweetId} className='saved-tweet-card'/><Button>&#10006;</Button></div>)}
+      {savedTweets.map((tweet) => <div key={tweet.id}><TwitterTweetEmbed tweetId={tweet.tweetId} className='saved-tweet-card'/><Button>&#10006;</Button></div>)}
      </div>
 
     </div>
   );
 }
-
+SavedTweets.propTypes = {
+  uid: PropTypes.string,
+};
 export default SavedTweets;
