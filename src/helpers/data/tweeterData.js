@@ -17,9 +17,10 @@ const getTweeterInfo = (usernames) => new Promise((resolve, reject) => {
 });
 const getCategoryTweeterInfo = (categoryId) => new Promise((resolve, reject) => {
   getCategoryTweeters(categoryId).then((response) => {
-    getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then(resolve)
-      .catch((error) => reject(error));
-  });
+    if (response.length !== 0) {
+      getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then(resolve);
+    }
+  }).catch((error) => reject(error));
 });
 const getUserTweets = (username) => new Promise((resolve, reject) => {
   axios.get(`${corsProxy}https://api.twitter.com/2/tweets/search/recent?query=from:${username}&max_results=25`, {

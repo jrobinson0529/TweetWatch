@@ -5,9 +5,12 @@ import './App.scss';
 import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
 import FriendsList from '../components/FriendsList';
+import { getUserCategories } from '../helpers/data/categoryData';
 
 function App() {
   const [user, setUser] = useState(null);
+  const [categories, setCategories] = useState([]);
+  const [topics, setTopics] = useState([]);
   // Checking for authenticated users. You must set up firebase authentication for this to work!
   useEffect(() => {
     firebase.auth().onAuthStateChanged((authed) => {
@@ -19,6 +22,7 @@ function App() {
           profileImage: authed.photoURL
         };
         setUser(userInfo);
+        getUserCategories(userInfo.uid).then(setCategories);
       } else if (user || user === null) {
         setUser(false);
       }
@@ -27,9 +31,9 @@ function App() {
   return (
     <div className='App'>
      <Router>
-        <NavBar user={user}/>
+        <NavBar user={user} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
         <FriendsList user={user}/>
-        <Routes user={user}/>
+        <Routes user={user} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
       </Router>
     </div>
   );
