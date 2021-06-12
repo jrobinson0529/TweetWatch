@@ -27,7 +27,7 @@ function Routes({ user }) {
         <PrivateRoute exact path="/edit-category/:id" component={() => <EditCategory user={user} />} user={user}/>
         <PrivateRoute exact path="/edit-topic/:id" component={() => <EditTopic user={user} />} user={user}/>
         <PrivateRoute exact path="/saved-tweets" component={() => <SavedTweets uid={user.uid} />} user={user}/>
-        <PrivateRoute exact path="/favorite-topics" component={() => <FavoriteTopics user={user} />} user={user}/>
+        <PrivateRoute exact path="/favorite-topics" component={() => <FavoriteTopics uid={user.uid} />} user={user}/>
         <PrivateRoute exact path="/profile/:uid" component={() => <Profile user={user} />} user={user}/>
       </Switch>
     </div>

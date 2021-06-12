@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Label } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
-import getSingleTopic from '../helpers/data/topicData';
+import { getSingleTopic } from '../helpers/data/topicData';
 import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
 
 function Topic() {

@@ -6,7 +6,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
       "searchParams": ["javascript", "js", "jquery", "programming"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JdIgl81xthrxLd": {
       "id": "-Mbb6-JdIgl81xthrxLd",
@@ -15,7 +16,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
       "searchParams": ["react"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JfT13XT3LHPtFa": {
       "id": "-Mbb6-JfT13XT3LHPtFa",
@@ -24,7 +26,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
       "searchParams": ["dev", "developer", "programming", "jobs"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JhXSJGgpcyWO25": {
       "id": "-Mbb6-JhXSJGgpcyWO25",
@@ -33,7 +36,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52Q93IB7cmveEkkI",
       "searchParams": ["test", "development", "programming", "meet"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JjrTKzEiJJ33Wm": {
       "id": "-Mbb6-JjrTKzEiJJ33Wm",
@@ -42,7 +46,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
       "searchParams": ["test", "choice", "programming"],
-      "favorite": true
+      "favorite": true,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JlOsT3pPIqi_4e": {
       "id": "-Mbb6-JlOsT3pPIqi_4e",
@@ -51,7 +56,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
       "searchParams": ["13/10"],
-      "favorite": true
+      "favorite": true,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JnuCsaUS1AmGr8": {
       "id": "-Mbb6-JnuCsaUS1AmGr8",
@@ -60,7 +66,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QDgG01BTHKaZEU",
       "searchParams": ["test", "choice", "programming"],
-      "favorite": true
+      "favorite": true,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JpTw6m25-cRJ2w": {
       "id": "-Mbb6-JpTw6m25-cRJ2w",
@@ -69,7 +76,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QDgG01BTHKaZEU",
       "searchParams": ["test", "choice", "programming"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JrCBUzAOV9UwLw": {
       "id": "-Mbb6-JrCBUzAOV9UwLw",
@@ -78,7 +86,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QDgG01BTHKaZEU",
       "searchParams": ["test", "choice", "programming"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JsHGfepbG6qeVH": {
       "id": "-Mbb6-JsHGfepbG6qeVH",
@@ -87,7 +96,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QBYNhgMf6cCSfP",
       "searchParams": ["test", "choice", "programming"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JrCBUzAD0ar14Sd": {
       "id": "-Mbb6-JrCBUzAD0ar14Sd",
@@ -96,7 +106,8 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QE05gaXv8bcixx",
       "searchParams": ["recipe", "burger"],
-      "favorite": false
+      "favorite": false,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     },
     "-Mbb6-JrCadfasdfadsfdsf": {
       "id": "-Mbb6-JrCadfasdfadsfdsf",
@@ -105,6 +116,7 @@
       "description": "topic description here",
       "categoryId": "-Mbb52QE05gaXv8bcixx",
       "searchParams": ["salad", "vegetarian", "healthy"],
-      "favorite": true
+      "favorite": true,
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
     }
 }

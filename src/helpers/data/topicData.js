@@ -7,5 +7,9 @@ const getSingleTopic = (topicId) => new Promise((resolve, reject) => {
     .then((response) => resolve((response.data)))
     .catch((error) => reject(error));
 });
-
-export default getSingleTopic;
+const getFavoriteTopics = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/topics.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(Object.values(response.data).filter((topic) => topic.favorite)))
+    .catch((error) => reject(error));
+});
+export { getFavoriteTopics, getSingleTopic };

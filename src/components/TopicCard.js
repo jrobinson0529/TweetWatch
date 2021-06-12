@@ -1,9 +1,22 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 import {
   Button, Card, Image, Label
 } from 'semantic-ui-react';
 
 function TopicCard({ ...topicInfo }) {
+  const history = useHistory();
+  const handleClick = (type) => {
+    switch (type) {
+      case 'view':
+        history.push(`/topic/${topicInfo.id}`);
+        break;
+      case 'delete':
+        console.warn('delete');
+        break;
+      default:
+    }
+  };
   return (
     <Card>
       <Card.Content>
@@ -20,7 +33,7 @@ function TopicCard({ ...topicInfo }) {
       </Card.Content>
       <Card.Content extra>
         <div className='ui two buttons'>
-          <Button basic color='green'>
+          <Button basic color='green' onClick={() => handleClick('view')}>
             View
           </Button>
           <Button basic color='red'>
