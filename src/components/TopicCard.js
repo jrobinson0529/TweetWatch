@@ -1,10 +1,12 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import {
   Button, Card, Image, Label
 } from 'semantic-ui-react';
+import { favoriteTopic, getFavoriteTopics } from '../helpers/data/topicData';
 
-function TopicCard({ ...topicInfo }) {
+function TopicCard({ setFavoriteTopics, uid, ...topicInfo }) {
   const history = useHistory();
   const handleClick = (type) => {
     switch (type) {
@@ -12,7 +14,9 @@ function TopicCard({ ...topicInfo }) {
         history.push(`/topic/${topicInfo.id}`);
         break;
       case 'delete':
-        console.warn('delete');
+        favoriteTopic(topicInfo.id, {
+          favorite: false
+        }).then(() => getFavoriteTopics(uid).then(setFavoriteTopics));
         break;
       default:
     }
@@ -36,7 +40,7 @@ function TopicCard({ ...topicInfo }) {
           <Button basic color='green' onClick={() => handleClick('view')}>
             View
           </Button>
-          <Button basic color='red'>
+          <Button basic color='red' onClick={() => handleClick('delete')}>
             Remove
           </Button>
         </div>
@@ -44,5 +48,9 @@ function TopicCard({ ...topicInfo }) {
     </Card>
   );
 }
+TopicCard.propTypes = {
+  setFavoriteTopics: PropTypes.func,
+  uid: PropTypes.string,
+};
 
 export default TopicCard;

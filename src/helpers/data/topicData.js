@@ -19,4 +19,11 @@ const createTopic = (topicObject) => new Promise((resolve, reject) => {
       axios.patch(`${dbUrl}/topics/${response.data.name}.json`, body).then((res) => resolve(res.data.id));
     }).catch((error) => reject(error));
 });
-export { getFavoriteTopics, getSingleTopic, createTopic };
+const favoriteTopic = (topicId, favorite) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/topics/${topicId}.json`, favorite)
+    .then(() => getSingleTopic(topicId).then(resolve))
+    .catch((error) => reject(error));
+});
+export {
+  getFavoriteTopics, getSingleTopic, createTopic, favoriteTopic
+};
