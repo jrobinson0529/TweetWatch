@@ -14,7 +14,7 @@ function FavoriteTopics({ uid }) {
     <div>
       <PageHeader headTitle='Favorite Topics'/>
       <Card.Group style={{ width: '60%', margin: 'auto' }}>
-        {favoriteTopics?.map((topicInfo) => <TopicCard key={topicInfo.id} {...topicInfo}/>)}
+        {favoriteTopics?.map((topicInfo) => <TopicCard key={topicInfo.id} setFavoriteTopics={setFavoriteTopics} uid={uid} {...topicInfo}/>)}
       </Card.Group>
     </div>
   );

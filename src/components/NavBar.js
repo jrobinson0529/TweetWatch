@@ -7,6 +7,7 @@ import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
 import { signOutUser } from '../helpers/auth';
 import { getCategoryTopics } from '../helpers/data/categoryData';
+import { favoriteTopic } from '../helpers/data/topicData';
 
 const NavMenu = ({
   user,
@@ -48,7 +49,9 @@ const NavMenu = ({
 
   const handleTopicClick = (e, { name }) => {
     setActiveTopic({ activeTopic: name });
-    history.push(`/topic/${e.target.id}`);
+    if (e.target.id) {
+      history.push(`/topic/${e.target.id}`);
+    }
   };
   const CategoryCard = ({ ...categoryInfo }) => {
     const handleClick = (type) => {
@@ -84,6 +87,14 @@ const NavMenu = ({
   };
 
   const TopicCard = ({ i, ...topicInfo }) => {
+    const [topic] = useState({
+      id: topicInfo.id,
+      searchParams: topicInfo.searchParams,
+      title: topicInfo.title,
+      iconUrl: topicInfo.iconUrl,
+      description: topicInfo.description,
+      favorite: topicInfo.favorite
+    });
     const handleClick = (type) => {
       switch (type) {
         case 'edit':
@@ -93,7 +104,9 @@ const NavMenu = ({
           console.warn('you clicked delete');
           break;
         case 'favorite':
-          console.warn('favorited this post');
+          favoriteTopic(topic.id, {
+            favorite: !topic.favorite
+          }).then(() => getCategoryTopics(topicInfo.categoryId).then(setTopics));
           break;
         default:
       }
@@ -106,7 +119,7 @@ const NavMenu = ({
         active={activeTopic.activeTopic === topicInfo.title }
         onClick={handleTopicClick}
       >
-      <Icon name={topicInfo.favorite ? 'star' : 'outline star'} color='yellow' className='menu-item-favorite-icon' onClick={() => handleClick('favorite')}/>
+      <Icon name={topic.favorite ? 'star' : 'outline star'} color='yellow' className='menu-item-favorite-icon' onClick={() => handleClick('favorite')}/>
       {topicInfo.title}
       <Dropdown icon='ellipsis vertical' pointing='top right' className='menu-item-dropdown'>
                   <Dropdown.Menu>
