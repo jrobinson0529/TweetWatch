@@ -108,7 +108,7 @@ const NavMenu = ({
       >
       <Icon name={topicInfo.favorite ? 'star' : 'outline star'} color='yellow' className='menu-item-favorite-icon' onClick={() => handleClick('favorite')}/>
       {topicInfo.title}
-      <Dropdown icon='ellipsis vertical' pointing='left' className='menu-item-dropdown'>
+      <Dropdown icon='ellipsis vertical' pointing='top right' className='menu-item-dropdown'>
                   <Dropdown.Menu>
                     <Dropdown.Item icon='edit' onClick={() => handleClick('edit')}/>
                     <Dropdown.Item icon='delete' onClick={() => handleClick('delete')}/>
