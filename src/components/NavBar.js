@@ -6,14 +6,15 @@ import {
 import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
 import { signOutUser } from '../helpers/auth';
-import { getCategoryTopics } from '../helpers/data/categoryData';
-import { deleteTopic, favoriteTopic } from '../helpers/data/topicData';
+import { deleteTopic, favoriteTopic, getCategoryTopics } from '../helpers/data/topicData';
+import { deleteCategory } from '../helpers/data/categoryTweeterData';
 
 const NavMenu = ({
   user,
   categories,
   topics,
   setTopics,
+  setCategories
 }) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
@@ -60,7 +61,8 @@ const NavMenu = ({
           history.push(`/edit-category/${categoryInfo.id}`);
           break;
         case 'delete':
-          console.warn('you clicked delete');
+          history.push('/');
+          deleteCategory(categoryInfo.uid, categoryInfo.id).then(setCategories);
           break;
         default:
       }
@@ -102,7 +104,7 @@ const NavMenu = ({
           break;
         case 'delete':
           history.push(`/category/${topicInfo.categoryId}`);
-          deleteTopic(topicInfo.categoryId, topicInfo.id).then(setTopics);
+          deleteTopic(topicInfo.id, topicInfo.categoryId).then(setTopics);
           break;
         case 'favorite':
           favoriteTopic(topic.id, {

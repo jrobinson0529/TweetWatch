@@ -6,8 +6,10 @@ import {
 } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
-import { getCategoryTopics, getSingleCategory } from '../helpers/data/categoryData';
-import { createTweeter, getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
+import { getSingleCategory } from '../helpers/data/categoryData';
+import { getCategoryTopics } from '../helpers/data/topicData';
+import { getUserTweetsFiltered } from '../helpers/data/tweeterData';
+import { createTweeter, deleteTweeter, getCategoryTweeterInfo } from '../helpers/data/categoryTweeterData';
 
 function Category() {
   const { id } = useParams();
@@ -30,14 +32,20 @@ function Category() {
       });
   }, [id]);
 
-  const TweeterCard = ({ ...tweeterInfo }) => (
+  const TweeterCard = ({ ...tweeterInfo }) => {
+    const handleClick = () => {
+      console.warn(tweeterInfo.username);
+      deleteTweeter(tweeterInfo.username).then(setTweeters);
+    };
+    return (
     <Label image size='big'>
         <img src={tweeterInfo.profile_image_url} />
       {tweeterInfo.username}
     { tweeterInfo.verified && <Icon color='blue' name='check circle' style={{ marginLeft: '5px' }}/> }
-    <Icon name='delete' />
+    <Icon name='delete' onClick={handleClick}/>
     </Label>
-  );
+    );
+  };
   const TweeterForm = () => {
     const [visible, setVisible] = useState(false);
     const [tweeter, setTweeter] = useState({
