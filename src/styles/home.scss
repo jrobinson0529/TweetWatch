@@ -10,3 +10,13 @@
   background-color: #405283!important;
   color: white;
 }
+.accordion-title {
+  color: white!important;
+  font-size: 1.25em!important;
+}
+.accordion-content {
+  color: rgba(255, 255, 255, 0.822)!important;
+}
+ li::before {
+  color: rgb(5, 176, 255)!important;
+}
