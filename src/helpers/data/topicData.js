@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { firebaseConfig } from '../apiKeys';
+import { getCategoryTopics } from './categoryData';
 
 const dbUrl = firebaseConfig.databaseURL;
 const getSingleTopic = (topicId) => new Promise((resolve, reject) => {
@@ -24,6 +25,13 @@ const favoriteTopic = (topicId, favorite) => new Promise((resolve, reject) => {
     .then(() => getSingleTopic(topicId).then(resolve))
     .catch((error) => reject(error));
 });
+const deleteTopic = (categoryId, topicId) => new Promise((resolve, reject) => {
+  axios.delete(`${dbUrl}/topics/${topicId}.json`)
+    .then(() => {
+      getCategoryTopics(categoryId).then(resolve);
+    }).catch((error) => reject(error));
+});
+
 export {
-  getFavoriteTopics, getSingleTopic, createTopic, favoriteTopic
+  getFavoriteTopics, getSingleTopic, createTopic, favoriteTopic, deleteTopic
 };
