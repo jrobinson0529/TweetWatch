@@ -13,16 +13,18 @@ function Feed({ tweets }) {
       uid,
       tweetId,
     });
-    const timeout = () => setTimeout(() => {
-      setToggle('Tweet is already saved');
-    }, 5000);
-    const stopTimeout = () => clearTimeout(timeout);
+    let saveWait;
+    const timeout = () => {
+      saveWait = setTimeout(() => {
+        setToggle('Tweet is already saved');
+      }, 5000);
+    };
     const handleClick = () => {
       timeout();
       setToggle(<Icon name='spinner' loading/>);
       saveTweet(uid, tweet).then(() => {
         setToggle('Saved!');
-        stopTimeout();
+        clearTimeout(saveWait);
       });
     };
 

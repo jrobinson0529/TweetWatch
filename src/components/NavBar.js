@@ -7,7 +7,7 @@ import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
 import { signOutUser } from '../helpers/auth';
 import { getCategoryTopics } from '../helpers/data/categoryData';
-import { favoriteTopic } from '../helpers/data/topicData';
+import { deleteTopic, favoriteTopic } from '../helpers/data/topicData';
 
 const NavMenu = ({
   user,
@@ -101,7 +101,8 @@ const NavMenu = ({
           history.push(`/edit-topic/${topicInfo.id}`);
           break;
         case 'delete':
-          console.warn('you clicked delete');
+          history.push(`/category/${topicInfo.categoryId}`);
+          deleteTopic(topicInfo.categoryId, topicInfo.id).then(setTopics);
           break;
         case 'favorite':
           favoriteTopic(topic.id, {
