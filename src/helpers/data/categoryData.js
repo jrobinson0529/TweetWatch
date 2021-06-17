@@ -25,10 +25,15 @@ const createCategory = (categoryObject) => new Promise((resolve, reject) => {
       axios.patch(`${dbUrl}/categories/${response.data.name}.json`, body).then((res) => resolve(res.data.id));
     }).catch((error) => reject(error));
 });
-
+const editCategory = (category, categoryId) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/categories/${categoryId}.json`, category)
+    .then(() => getUserCategories(category.uid).then(resolve))
+    .catch((error) => reject(error));
+});
 export {
   getUserCategories,
   getCategoryTweeters,
   getSingleCategory,
   createCategory,
+  editCategory
 };

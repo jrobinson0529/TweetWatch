@@ -7,9 +7,8 @@ import {
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
 import { getSingleCategory } from '../helpers/data/categoryData';
-import { getCategoryTopics } from '../helpers/data/topicData';
-import { getUserTweetsFiltered } from '../helpers/data/tweeterData';
-import { createTweeter, deleteTweeter, getCategoryTweeterInfo } from '../helpers/data/categoryTweeterData';
+import { createTweeter, deleteTweeter } from '../helpers/data/categoryTweeterData';
+import mergeTweetData from '../helpers/mergeTweetData';
 
 function Category() {
   const { id } = useParams();
@@ -22,20 +21,14 @@ function Category() {
   }, [id]);
 
   useEffect(() => {
-    const paramArray = [];
-    Promise.all([getCategoryTweeterInfo(id), getCategoryTopics(id)])
-      .then((response) => {
-        setTweeters(response[0]);
-        response[1].forEach((object) => paramArray.push(...object.searchParams));
-        const tweeterUsernames = response[0].map((tweeterObject) => tweeterObject.username);
-        getUserTweetsFiltered(tweeterUsernames, paramArray).then(setTweets);
-      });
+    mergeTweetData(id, setTweeters, setTweets);
   }, [id]);
 
   const TweeterCard = ({ ...tweeterInfo }) => {
     const handleClick = () => {
-      console.warn(tweeterInfo.username);
-      deleteTweeter(tweeterInfo.username).then(setTweeters);
+      deleteTweeter(tweeterInfo.username, id).then(() => {
+        mergeTweetData(id, setTweeters, setTweets);
+      });
     };
     return (
     <Label image size='big'>
@@ -56,12 +49,14 @@ function Category() {
       setVisible((prevState) => !prevState);
     };
     const handleSubmit = () => {
-      createTweeter(id, tweeter).then(setTweeters);
+      createTweeter(id, tweeter).then(() => {
+        mergeTweetData(id, setTweeters, setTweets);
+      });
     };
     const handleChange = (e) => {
       setTweeter((prevState) => ({
         ...prevState,
-        [e.target.name]: e.target.value
+        [e.target.name]: e.target.value.toLowerCase()
       }));
     };
     return (

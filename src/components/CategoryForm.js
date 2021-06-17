@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
-import { createCategory, getUserCategories } from '../helpers/data/categoryData';
+import { createCategory, editCategory, getUserCategories } from '../helpers/data/categoryData';
 import getCurrentUsersUid from '../helpers/data/userData';
 
-function CategoryForm({ setCategories }) {
+function CategoryForm({ setCategories, categoryObject }) {
   const uid = getCurrentUsersUid();
   const history = useHistory();
   const [category, setCategory] = useState({
-    title: '',
-    iconUrl: '',
-    description: '',
+    id: categoryObject.id || null,
+    title: categoryObject.title || '',
+    iconUrl: categoryObject.iconUrl || '',
+    description: categoryObject.description || '',
     uid,
   });
+  useEffect(() => {
+    if (categoryObject) {
+      setCategory({
+        id: categoryObject.id || null,
+        title: categoryObject.title || '',
+        iconUrl: categoryObject.iconUrl || '',
+        description: categoryObject.description || '',
+        uid,
+      });
+    }
+  }, [categoryObject]);
   const handleInputChange = (e) => {
     setCategory((prevState) => ({
       ...prevState,
@@ -21,10 +33,14 @@ function CategoryForm({ setCategories }) {
     }));
   };
   const handleSubmit = () => {
-    createCategory(category).then((response) => {
-      getUserCategories(uid).then(setCategories);
-      history.push(`/category/${response}`);
-    });
+    if (category.id) {
+      editCategory(category, category.id).then(setCategories);
+    } else {
+      createCategory(category).then((response) => {
+        getUserCategories(uid).then(setCategories);
+        history.push(`/category/${response}`);
+      });
+    }
   };
 
   return (
@@ -39,7 +55,8 @@ function CategoryForm({ setCategories }) {
   );
 }
 CategoryForm.propTypes = {
-  setCategories: PropTypes.func
+  setCategories: PropTypes.func,
+  categoryObject: PropTypes.object,
 };
 
 export default CategoryForm;
