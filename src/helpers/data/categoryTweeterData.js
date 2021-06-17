@@ -9,6 +9,8 @@ const getCategoryTweeterInfo = (categoryId) => new Promise((resolve, reject) => 
   getCategoryTweeters(categoryId).then((response) => {
     if (response.length !== 0) {
       getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then(resolve);
+    } else {
+      resolve([]);
     }
   }).catch((error) => reject(error));
 });
@@ -24,11 +26,11 @@ const getSingleTweeterbyUsername = (username) => new Promise((resolve, reject) =
     .then((response) => resolve(Object.values(response.data)[0]))
     .catch((error) => reject(error));
 });
-const deleteTweeter = (username) => new Promise((resolve, reject) => {
-  getSingleTweeterbyUsername(username).then((response) => {
+const deleteTweeter = (username, categoryId) => new Promise((resolve, reject) => {
+  getSingleTweeterbyUsername(username.toLowerCase()).then((response) => {
     axios.delete(`${dbUrl}/tweeters/${response.id}.json`)
       .then(() => {
-        getCategoryTweeterInfo(response.categoryId).then(resolve);
+        getCategoryTweeterInfo(categoryId).then(resolve);
       });
   }).catch((error) => reject(error));
 });
