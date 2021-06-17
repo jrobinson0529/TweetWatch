@@ -35,7 +35,12 @@ const deleteTopic = (topicId, categoryId) => new Promise((resolve, reject) => {
       getCategoryTopics(categoryId).then(resolve);
     }).catch((error) => reject(error));
 });
+const editTopic = (topic, topicId) => new Promise((resolve, reject) => {
+  axios.patch(`${dbUrl}/topics/${topicId}.json`, topic)
+    .then(() => getCategoryTopics(topic.categoryId).then(resolve))
+    .catch((error) => reject(error));
+});
 
 export {
-  getFavoriteTopics, getSingleTopic, createTopic, favoriteTopic, deleteTopic, getCategoryTopics
+  getFavoriteTopics, getSingleTopic, createTopic, favoriteTopic, deleteTopic, getCategoryTopics, editTopic
 };
