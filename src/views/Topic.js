@@ -5,7 +5,8 @@ import { Label } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
 import { getSingleTopic } from '../helpers/data/topicData';
-import { getCategoryTweeterInfo, getUserTweetsFiltered } from '../helpers/data/tweeterData';
+import { getUserTweetsFiltered } from '../helpers/data/tweeterData';
+import { getCategoryTweeterInfo } from '../helpers/data/categoryTweeterData';
 
 function Topic() {
   const { id } = useParams();

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Button, Dropdown, Form } from 'semantic-ui-react';
-import { getCategoryTopics, getUserCategories } from '../helpers/data/categoryData';
-import { createTopic } from '../helpers/data/topicData';
+import { getUserCategories } from '../helpers/data/categoryData';
+import { getCategoryTopics, createTopic } from '../helpers/data/topicData';
 import getCurrentUsersUid from '../helpers/data/userData';
 
 function TopicForm({ setTopics }) {

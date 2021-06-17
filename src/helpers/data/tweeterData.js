@@ -1,10 +1,8 @@
 /* eslint-disable quotes */
 /* eslint-disable quote-props */
 import axios from 'axios';
-import { firebaseConfig, twitterConfig } from '../apiKeys';
-import { getCategoryTweeters } from './categoryData';
+import { twitterConfig } from '../apiKeys';
 
-const dbUrl = firebaseConfig.databaseURL;
 const { bearerToken } = twitterConfig;
 const corsProxy = 'https://salty-wildwood-25813.herokuapp.com/';
 const getTweeterInfo = (usernames) => new Promise((resolve, reject) => {
@@ -16,13 +14,7 @@ const getTweeterInfo = (usernames) => new Promise((resolve, reject) => {
     .then((response) => resolve((Object.values(response.data)[0])))
     .catch((error) => reject(error));
 });
-const getCategoryTweeterInfo = (categoryId) => new Promise((resolve, reject) => {
-  getCategoryTweeters(categoryId).then((response) => {
-    if (response.length !== 0) {
-      getTweeterInfo(response.map((tweeter) => tweeter.twitterId)).then(resolve);
-    }
-  }).catch((error) => reject(error));
-});
+
 const getUserTweets = (username) => new Promise((resolve, reject) => {
   axios.get(`${corsProxy}https://api.twitter.com/2/tweets/search/recent?query=from:${username}&max_results=10`, {
     headers: {
@@ -52,14 +44,7 @@ const getUserTweetsFiltered = (usernames, searchParams) => new Promise((resolve,
     resolve(filteredTweetsArray);
   }).catch((error) => reject(error));
 });
-const createTweeter = (categoryId, tweeterObject) => new Promise((resolve, reject) => {
-  axios.post(`${dbUrl}/tweeters.json`, tweeterObject)
-    .then((response) => {
-      const body = { id: response.data.name };
-      axios.patch(`${dbUrl}/tweeters/${response.data.name}.json`, body).then(() => getCategoryTweeterInfo(categoryId).then(resolve));
-    }).catch((error) => reject(error));
-});
 
 export {
-  getCategoryTweeterInfo, getTweeterInfo, getUserTweets, getUserTweetsFiltered, createTweeter
+  getTweeterInfo, getUserTweets, getUserTweetsFiltered
 };
