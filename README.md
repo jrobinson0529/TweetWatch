@@ -1,21 +1,10 @@
-# React Template
-
-**Use this template to get up and running quickly on projects.**
-
-## Get Started
-```npm i``` to install dependencies!
-
-
-- [Steps to deploy](https://github.com/nss-nightclass-projects/REACT-Deployment-Netlify)
-### Helpful JS tool docs!
-- [MomentJS](https://momentjs.com/) Great library for date/time related processes
-- [React Router](https://reactrouter.com/) Essential to using links and making a SPA look like multiple pages.
-- [React](https://reactjs.org/) React docs
-- [Reactstrap](https://reactstrap.github.io/) Bootstrap for react!
-- [Semantic UI](https://react.semantic-ui.com/)
-- [React Animation](https://nearform.github.io/react-animation/) Awesome simple to use library for quick easy component based animations
 
 # TweetWatch
+### [Main site](https://tweetwatch.netlify.app)  [![Netlify Status](https://api.netlify.com/api/v1/badges/d458224e-0949-41e2-9d48-203e22df6a1b/deploy-status)](https://app.netlify.com/sites/tweetwatch/deploys)
+### [Dev site](https://tweetwatch-development.netlify.app) [![Netlify Status](https://api.netlify.com/api/v1/badges/fe069e59-f188-482b-bb5a-2db7146addb3/deploy-status)](https://app.netlify.com/sites/tweetwatch-development/deploys)
+
+
+
   TweetWatch is a simple and efficient app for skimming tweets to get the latest news on specific topics from reputable sources of information using the power of Twitter.
   <br>
   ![191024121759-twitter-phone-stock](https://user-images.githubusercontent.com/45837967/119564586-8fb52e00-bd6e-11eb-9c67-516f3d71e04e.jpg)

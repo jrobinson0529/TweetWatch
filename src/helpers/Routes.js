@@ -17,7 +17,8 @@ import Profile from '../views/Profile';
 function Routes({
   user,
   setCategories,
-  setTopics
+  setTopics,
+  setUser,
 }) {
   return (
     <div>
@@ -32,7 +33,7 @@ function Routes({
         <PrivateRoute exact path="/edit-topic/:id" component={() => <EditTopic user={user} setTopics={setTopics}/>} user={user}/>
         <PrivateRoute exact path="/saved-tweets" component={() => <SavedTweets uid={user.uid} />} user={user}/>
         <PrivateRoute exact path="/favorite-topics" component={() => <FavoriteTopics uid={user.uid} />} user={user}/>
-        <PrivateRoute exact path="/profile/:uid" component={() => <Profile user={user} />} user={user}/>
+        <PrivateRoute exact path="/profile/:id" component={() => <Profile user={user} setUser={setUser}/>} user={user}/>
       </Switch>
     </div>
   );
@@ -43,5 +44,6 @@ Routes.propTypes = {
   setCategories: PropTypes.func,
   topics: PropTypes.array,
   setTopics: PropTypes.func,
+  setUser: PropTypes.func,
 };
 export default Routes;

@@ -6,6 +6,7 @@ import {
 } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
+import StyledHeader from '../components/styled_components/StyledHeader';
 import { getSingleCategory } from '../helpers/data/categoryData';
 import { createTweeter, deleteTweeter } from '../helpers/data/categoryTweeterData';
 import mergeTweetData from '../helpers/mergeTweetData';
@@ -70,7 +71,7 @@ function Category() {
           width: '25%',
           margin: 'auto'
         }}>
-      <Form.Input label='Twitter handle' type='text' name='twitterId' onChange={handleChange}/>
+      <Form.Input label='Twitter handle' type='text' name='twitterId' placeholder='NashSoftware,jesserobinsons,gordonramsay,etc - No spaces!' onChange={handleChange}/>
     </Form>
       </Transition>
       </>
@@ -82,7 +83,7 @@ function Category() {
       <PageHeader headTitle={category?.title} description={category?.description}/>
       <TweeterForm />
       <Label.Group style={{ margin: '20px' }}>
-        {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <PageHeader inputFontSize='3em'>Add a Twitter hanldle to start Tracking!</PageHeader> }
+        {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <StyledHeader inputfontsize='2em'>Add a @Twitter handle to start tracking!</StyledHeader>}
       </Label.Group>
       <Feed tweets={tweets}/>
     </>
