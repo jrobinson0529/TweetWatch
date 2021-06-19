@@ -83,7 +83,7 @@ function Category() {
       <PageHeader headTitle={category?.title} description={category?.description}/>
       <TweeterForm />
       <Label.Group style={{ margin: '20px' }}>
-        {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <StyledHeader inputFontSize='2em'>Add a @Twitter handle to start tracking!</StyledHeader>}
+        {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <StyledHeader inputfontsize='2em'>Add a @Twitter handle to start tracking!</StyledHeader>}
       </Label.Group>
       <Feed tweets={tweets}/>
     </>

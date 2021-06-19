@@ -6,7 +6,7 @@ import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
 import FriendsList from '../components/FriendsList';
 import { getUserCategories } from '../helpers/data/categoryData';
-import { createUser } from '../helpers/data/userData';
+import { createUser, getUserInfo, getUsers } from '../helpers/data/userData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,7 +23,14 @@ function App() {
           profileImage: authed.photoURL,
           bio: '',
         };
-        createUser(userInfo).then(setUser);
+        getUsers().then((response) => {
+          const userExists = response.filter((object) => object.uid === userInfo.uid);
+          if (userExists.length === 0) {
+            createUser(userInfo).then(setUser);
+          } else {
+            getUserInfo(userExists[0].id).then(setUser);
+          }
+        });
         getUserCategories(userInfo.uid).then(setCategories);
       } else if (user || user === null) {
         setUser(false);

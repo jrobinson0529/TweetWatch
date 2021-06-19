@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const StyledHeader = styled(Header)`
   &&& {
-    font-size: ${(props) => props.inputFontSize || '6em'};
+    font-size: ${(props) => props.inputfontsize || '6em'};
     color: white;
   }
 `;

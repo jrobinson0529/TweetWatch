@@ -39,7 +39,7 @@ function Profile({ user, setUser }) {
       }}>
         <PageHeader headTitle={user.username} fontSize='3em' description={<Image src={user.profileImage} avatar size='small'/>}/>
         <div>
-          <StyledHeader inputFontSize='2em'>Bio</StyledHeader>
+          <StyledHeader inputfontsize='2em'>Bio</StyledHeader>
           <p>{user.bio || 'Nothing here yet!'}</p>
           {editing && <Divider />}
         </div>

@@ -21,7 +21,11 @@ const editUser = (userObject, id) => new Promise((resolve, reject) => {
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
-
+const getUsers = () => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/users.json`)
+    .then((response) => resolve(Object.values(response.data)))
+    .catch((error) => reject(error));
+});
 export {
-  getUserInfo, getCurrentUsersUid, createUser, editUser
+  getUserInfo, getCurrentUsersUid, createUser, editUser, getUsers
 };
