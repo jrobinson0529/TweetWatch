@@ -79,7 +79,7 @@ function Home() {
             </Accordion.Title>
             <Accordion.Content active={activeIndex === 2} className='accordion-content'>
               <p>
-                You can get pretty creative with how to use the site. For Example my current SO, Amy loves to look at cute dogs (who doesn&apos;t?) on a Twitter handle called @dog_rates and as the name suggests they rate dogs up to 14/10. You can set up a topic to view only dogs that were given the highest ranks 14/10 and 13/10 to see only the very BEST pups.
+                You can get pretty creative with how to use the site. For Example my SO, Amy loves to look at cute dogs (who doesn&apos;t?) on a Twitter handle called @dog_rates and as the name suggests they rate dogs up to 14/10. You can set up a topic to view only dogs that were given the highest ranks 14/10 and 13/10 to see only the very BEST pups.
               </p>
               <p>
                 For myself I am a gamer and I like to follow certain game devs to see when they announce content release or patches for the games I play. I could simply create a category for Games. Create a topic for a game that I play and set the search to look for keywords: Content, Patch, Release, or anything specific I may want to see!
