@@ -9,10 +9,10 @@ function CategoryForm({ setCategories, categoryObject }) {
   const uid = getCurrentUsersUid();
   const history = useHistory();
   const [category, setCategory] = useState({
-    id: categoryObject.id || null,
-    title: categoryObject.title || '',
-    iconUrl: categoryObject.iconUrl || '',
-    description: categoryObject.description || '',
+    id: categoryObject?.id || null,
+    title: categoryObject?.title || '',
+    iconUrl: categoryObject?.iconUrl || '',
+    description: categoryObject?.description || '',
     uid,
   });
   useEffect(() => {
