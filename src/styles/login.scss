@@ -1,0 +1,29 @@
+.login-page-container {
+  display: flex;
+}
+.login-image-container {
+  width: 45%;
+  height: 100vh;
+  max-height: 100%;
+}
+.login-form-container {
+  padding-right: 10%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 60%;
+}
+.header-text-container {
+  text-align: justify;
+  h1 {
+    color: white !important;
+  }
+  h3 {
+    color: rgba(255, 255, 255, 0.658) !important;
+  }
+}
+.login-btn {
+  margin: 20px !important;
+  width: 30%;
+}

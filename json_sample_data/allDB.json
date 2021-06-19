@@ -1,0 +1,206 @@
+{
+  "categories": {
+    "-Mbb52Q93IB7cmveEkkI": {
+      "id": "-Mbb52Q93IB7cmveEkkI",
+      "title": "Programming",
+      "iconUrl": "https://www.bairesdev.com/wp-content/uploads/2020/10/Top-100-programming-languages.jpg",
+      "description": "Trying to find programming related news",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QBYNhgMf6cCSfP": {
+      "id": "-Mbb52QBYNhgMf6cCSfP",
+      "title": "Dogs",
+      "iconUrl": "http://dummyimage.com/93x85.png/dddddd/000000",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QDgG01BTHKaZEU": {
+      "id": "-Mbb52QDgG01BTHKaZEU",
+      "title": "transitional",
+      "iconUrl": "http://dummyimage.com/84x72.png/cc0000/ffffff",
+      "description": "This is a description for a category ipsum",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mbb52QE05gaXv8bcixx": {
+      "id": "-Mbb52QE05gaXv8bcixx",
+      "title": "Food",
+      "iconUrl": "http://dummyimage.com/96x75.png/cc0000/ffffff",
+      "description": "Trying to find decent recipes",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    }
+  },
+  "topics": {
+    "-Mbb6-JbhXOz83VrPmXS": {
+      "id": "-Mbb6-JbhXOz83VrPmXS",
+      "title": "Javascript",
+      "iconUrl": "http://dummyimage.com/70x96.png/dddddd/000000",
+      "description": "topic description here",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI",
+      "searchParams": ["javascript", "js", "jquery", "programming"],
+      "favorite": false
+    },
+    "-Mbb6-JdIgl81xthrxLd": {
+      "id": "-Mbb6-JdIgl81xthrxLd",
+      "title": "React",
+      "iconUrl": "http://dummyimage.com/94x66.png/dddddd/000000",
+      "description": "topic description here",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI",
+      "searchParams": ["react"],
+      "favorite": false
+    },
+    "-Mbb6-JfT13XT3LHPtFa": {
+      "id": "-Mbb6-JfT13XT3LHPtFa",
+      "title": "Jobs",
+      "iconUrl": "http://dummyimage.com/52x89.png/5fa2dd/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI",
+      "searchParams": ["dev", "developer", "programming", "jobs"],
+      "favorite": false
+    },
+    "-Mbb6-JhXSJGgpcyWO25": {
+      "id": "-Mbb6-JhXSJGgpcyWO25",
+      "title": "Idk",
+      "iconUrl": "http://dummyimage.com/72x89.png/ff4444/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI",
+      "searchParams": ["test", "development", "programming", "meet"],
+      "favorite": false
+    },
+    "-Mbb6-JjrTKzEiJJ33Wm": {
+      "id": "-Mbb6-JjrTKzEiJJ33Wm",
+      "title": "infrastructure",
+      "iconUrl": "http://dummyimage.com/98x95.png/ff4444/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QBYNhgMf6cCSfP",
+      "searchParams": ["test", "choice", "programming"],
+      "favorite": true
+    },
+    "-Mbb6-JlOsT3pPIqi_4e": {
+      "id": "-Mbb6-JlOsT3pPIqi_4e",
+      "title": "Dogs",
+      "iconUrl": "http://dummyimage.com/87x60.png/5fa2dd/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QBYNhgMf6cCSfP",
+      "searchParams": ["13/10"],
+      "favorite": true
+    },
+    "-Mbb6-JnuCsaUS1AmGr8": {
+      "id": "-Mbb6-JnuCsaUS1AmGr8",
+      "title": "leading edge",
+      "iconUrl": "http://dummyimage.com/72x77.png/ff4444/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QDgG01BTHKaZEU",
+      "searchParams": ["test", "choice", "programming"],
+      "favorite": true
+    },
+    "-Mbb6-JpTw6m25-cRJ2w": {
+      "id": "-Mbb6-JpTw6m25-cRJ2w",
+      "title": "Innovative",
+      "iconUrl": "http://dummyimage.com/79x54.png/dddddd/000000",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QDgG01BTHKaZEU",
+      "searchParams": ["test", "choice", "programming"],
+      "favorite": false
+    },
+    "-Mbb6-JrCBUzAOV9UwLw": {
+      "id": "-Mbb6-JrCBUzAOV9UwLw",
+      "title": "Organic",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QDgG01BTHKaZEU",
+      "searchParams": ["test", "choice", "programming"],
+      "favorite": false
+    },
+    "-Mbb6-JsHGfepbG6qeVH": {
+      "id": "-Mbb6-JsHGfepbG6qeVH",
+      "title": "capacity",
+      "iconUrl": "http://dummyimage.com/93x95.png/5fa2dd/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QBYNhgMf6cCSfP",
+      "searchParams": ["test", "choice", "programming"],
+      "favorite": false
+    },
+    "-Mbb6-JrCBUzAD0ar14Sd": {
+      "id": "-Mbb6-JrCBUzAD0ar14Sd",
+      "title": "Burgers",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QE05gaXv8bcixx",
+      "searchParams": ["recipe", "burger"],
+      "favorite": false
+    },
+    "-Mbb6-JrCadfasdfadsfdsf": {
+      "id": "-Mbb6-JrCadfasdfadsfdsf",
+      "title": "Salads",
+      "iconUrl": "http://dummyimage.com/90x70.png/cc0000/ffffff",
+      "description": "topic description here",
+      "categoryId": "-Mbb52QE05gaXv8bcixx",
+      "searchParams": ["salad", "vegetarian", "healthy"],
+      "favorite": true
+    }
+  },
+  "tweeters": {
+    "-Ar17alvj238t8ufm" : {
+      "id": "-Ar17alvj238t8ufm",
+      "twitterId": "GordonRamsay",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Ar1j23r093jn0101" : {
+      "id": "-Ar1j23r093jn0101",
+      "twitterId": "BurgerKing",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Arasaa91943fadfadf13241" : {
+      "id": "-Arasaa91943fadfadf13241",
+      "twitterId": "Wendys",
+      "categoryId": "-Mbb52QE05gaXv8bcixx"
+    },
+    "-Arasdfaedf11sa" : {
+      "id": "-Arasdfaedf11sa",
+      "twitterId": "reactjs",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Arasop13915091u59151sa" : {
+      "id": "-Arasop13915091u59151sa",
+      "twitterId": "PR0GRAMMERHUM0R",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Aqowieuroi2uroi12415" : {
+      "id": "-Aqowieuroi2uroi12415",
+      "twitterId": "NashSoftware",
+      "categoryId": "-Mbb52Q93IB7cmveEkkI"
+    },
+    "-Aq12312445152uroi12415" : {
+      "id": "-Aq12312445152uroi12415",
+      "twitterId": "dog_rates",
+      "categoryId": "-Mbb52QBYNhgMf6cCSfP"
+    }
+  },
+  "savedTweets" : {
+    "-Mc-r5bXXFSvtT2BWh4t": {
+      "id": "-Mc-r5bXXFSvtT2BWh4t",
+      "tweetId": "1400927883971895297",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5bYKBYlkjnVTQsU": {
+      "id": "-Mc-r5bYKBYlkjnVTQsU",
+      "tweetId": "1400724673558614020",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5bZZWZha60FTPfY": {
+      "id": "-Mc-r5bZZWZha60FTPfY",
+      "tweetId": "1400932950762532868",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5b_aKIsHX3i6Ly_": {
+      "id": "-Mc-r5b_aKIsHX3i6Ly_",
+      "tweetId": "1400494817168216066",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    },
+    "-Mc-r5ba_8u8gozgFOgI": {
+      "id": "-Mc-r5ba_8u8gozgFOgI",
+      "tweetId": "1399330043126484992",
+      "uid": "xsYSoAhV5tNgbgoxbqjYrPmMwAp1"
+    }
+  }  
+}
