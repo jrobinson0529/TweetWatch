@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { TwitterTweetEmbed } from 'react-twitter-embed';
 import { Button, Icon } from 'semantic-ui-react';
-import getCurrentUsersUid from '../helpers/data/userData';
+import { getCurrentUsersUid } from '../helpers/data/userData';
 import { saveTweet } from '../helpers/data/savedTweetsData';
 
 function Feed({ tweets }) {

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
 import { Button, Form } from 'semantic-ui-react';
 import { createCategory, editCategory, getUserCategories } from '../helpers/data/categoryData';
-import getCurrentUsersUid from '../helpers/data/userData';
+import { getCurrentUsersUid } from '../helpers/data/userData';
 
 function CategoryForm({ setCategories, categoryObject }) {
   const uid = getCurrentUsersUid();

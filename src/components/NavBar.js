@@ -23,7 +23,7 @@ const NavMenu = ({
   const handleAccountInfoDropdownClick = (type) => {
     switch (type) {
       case 'profile':
-        history.push(`/profile/${user.uid}`);
+        history.push(`/profile/${user.id}`);
         break;
       case 'savedTweets':
         history.push('/saved-tweets');
