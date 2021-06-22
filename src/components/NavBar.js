@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import {
-  Dropdown, Header, Icon, Image, Label, Loader, Menu
+  Dropdown, Header, Icon, Image, Loader, Menu
 } from 'semantic-ui-react';
 import { useHistory, Link } from 'react-router-dom';
 import twLogo from '../Assets/TweetWatchLogo.png';
@@ -75,15 +75,14 @@ const NavMenu = ({
               active={activeCategory.activeCategory === categoryInfo.title }
               onClick={handleCategoryClick}
             >
-            <Image circular avatar floated='left' src={categoryInfo.iconUrl} className='menu-item-image'/>
-            {categoryInfo.title}
+            <Image avatar src={categoryInfo.iconUrl} className='menu-item-image'/>
+             {categoryInfo.title}
             <Dropdown icon='ellipsis vertical' className='menu-item-dropdown' pointing='top right'>
                   <Dropdown.Menu>
                     <Dropdown.Item icon='edit' onClick={() => handleClick('edit')}/>
                     <Dropdown.Item icon='delete' onClick={() => handleClick('delete')}/>
                   </Dropdown.Menu>
                 </Dropdown>
-            <Label color='teal'>3</Label>
          </Menu.Item>
     );
   };
@@ -124,13 +123,12 @@ const NavMenu = ({
       >
       <Icon name={topic.favorite ? 'star' : 'outline star'} color='yellow' className='menu-item-favorite-icon' onClick={() => handleClick('favorite')}/>
       {topicInfo.title}
-      <Dropdown icon='ellipsis vertical' pointing='top right' className='menu-item-dropdown'>
+      <Dropdown icon='ellipsis vertical' pointing='top right' className='menu-item-dropdown-topic'>
                   <Dropdown.Menu>
                     <Dropdown.Item icon='edit' onClick={() => handleClick('edit')}/>
                     <Dropdown.Item icon='delete' onClick={() => handleClick('delete')}/>
                   </Dropdown.Menu>
                 </Dropdown>
-      <Label color='teal'>1</Label>
    </Menu.Item>
     );
   };

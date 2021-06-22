@@ -9,6 +9,11 @@ const getUserInfo = (id) => new Promise((resolve, reject) => {
     .then((response) => resolve(response.data))
     .catch((error) => reject(error));
 });
+const getUserInfoByUid = (uid) => new Promise((resolve, reject) => {
+  axios.get(`${dbUrl}/users.json?orderBy="uid"&equalTo="${uid}"`)
+    .then((response) => resolve(Object.values(response.data)[0]))
+    .catch((error) => reject(error));
+});
 const createUser = (userObject) => new Promise((resolve, reject) => {
   axios.post(`${dbUrl}/users.json`, userObject)
     .then((response) => {
@@ -27,5 +32,5 @@ const getUsers = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 export {
-  getUserInfo, getCurrentUsersUid, createUser, editUser, getUsers
+  getUserInfo, getCurrentUsersUid, createUser, editUser, getUsers, getUserInfoByUid
 };
