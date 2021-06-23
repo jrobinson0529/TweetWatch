@@ -12,12 +12,11 @@ import { deleteCategory } from '../helpers/data/categoryTweeterData';
 const NavMenu = ({
   user,
   categories,
-  topics,
-  setTopics,
   setCategories
 }) => {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
+  const [topics, setTopics] = useState([]);
   const [activeCategory, setActiveCategory] = useState({});
   const [activeTopic, setActiveTopic] = useState({});
   const handleAccountInfoDropdownClick = (type) => {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import {
   Image, Menu, Input
 } from 'semantic-ui-react';
@@ -8,18 +9,24 @@ import { getCurrentUsersUid } from '../helpers/data/userData';
 
 const NavMenu = () => {
   const uid = getCurrentUsersUid();
+  const history = useHistory();
   const [friendList, setFriendsList] = useState([]);
   useEffect(() => {
     getUserFriends(uid).then((x) => mergeUserFriendInfo(x).then(setFriendsList));
   }, []);
+  const handleClick = (e) => {
+    console.warn(e.target.id);
+    history.push(`/profile/${e.target.id}`);
+  };
   const FriendCard = ({ ...friendInfo }) => (
     <Menu.Item
         id={friendInfo.id}
         className='menu-item'
         name={friendInfo.username}
+        onClick={handleClick}
       >
       <Image avatar src={friendInfo.profileImage} className='menu-item-image'/>
-      <span> {friendInfo.username}</span>
+      <span id={friendInfo.id}> {friendInfo.username}</span>
    </Menu.Item>
   );
   const handleSubmit = (e) => {
