@@ -2,7 +2,7 @@ import { getCategoryTweeterInfo } from './data/categoryTweeterData';
 import { getCategoryTopics } from './data/topicData';
 import { getUserTweetsFiltered } from './data/tweeterData';
 
-const mergeTweetData = (id, setTweeters, setTweets) => {
+const mergeTweetData = (id, setTweeters, setTweets) => new Promise(() => {
   const paramArray = [];
   Promise.all([getCategoryTweeterInfo(id), getCategoryTopics(id)])
     .then((response) => {
@@ -11,5 +11,5 @@ const mergeTweetData = (id, setTweeters, setTweets) => {
       const tweeterUsernames = response[0].map((tweeterObject) => tweeterObject.username);
       getUserTweetsFiltered(tweeterUsernames, paramArray).then(setTweets);
     });
-};
+});
 export default mergeTweetData;

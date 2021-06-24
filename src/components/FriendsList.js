@@ -15,7 +15,6 @@ const NavMenu = () => {
     getUserFriends(uid).then((x) => mergeUserFriendInfo(x).then(setFriendsList));
   }, []);
   const handleClick = (e) => {
-    console.warn(e.target.id);
     history.push(`/profile/${e.target.id}`);
   };
   const FriendCard = ({ ...friendInfo }) => (

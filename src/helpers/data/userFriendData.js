@@ -44,6 +44,15 @@ const getSearchedUser = (username, uid) => new Promise((resolve, reject) => {
     })
     .catch((error) => reject(error));
 });
+const deleteUserFriend = (uid, id) => new Promise((resolve, reject) => {
+  getUserFriends(uid).then((x) => mergeUserFriendInfo(x).then((response) => {
+    const singleFriend = response.filter((friend) => friend.id === id);
+    getSingleUserFriend(uid, singleFriend[0].uid).then((friendResponse) => {
+      axios.delete(`${dbUrl}/friendedUsers/${friendResponse[0].id}.json`)
+        .then(() => getUserFriends(uid).then((friends) => mergeUserFriendInfo(friends).then(resolve)));
+    });
+  })).catch((error) => reject(error));
+});
 export {
-  createUserFriend, getSearchedUser, getSingleUserFriend, getUserFriends, mergeUserFriendInfo
+  createUserFriend, getSearchedUser, getSingleUserFriend, getUserFriends, mergeUserFriendInfo, deleteUserFriend
 };
