@@ -1,21 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useParams } from 'react-router-dom';
 import {
   Button, Image, Form, TextArea, Divider
 } from 'semantic-ui-react';
 import StyledHeader from '../components/styled_components/StyledHeader';
 import PageHeader from '../components/PageHeader';
-import { editUser, getUserInfo } from '../helpers/data/userData';
+import { editUser, getCurrentUsersUid, getUserInfo } from '../helpers/data/userData';
 
-function Profile({ user, setUser }) {
+function Profile({ setUser }) {
+  const uid = getCurrentUsersUid();
+  const { id } = useParams();
   const [editing, setEditing] = useState();
+  const [otherUser, setOtherUser] = useState(true);
+
   const handleClick = () => {
     setEditing((prevState) => !prevState);
   };
   const [userObject, setUserObject] = useState({});
   useEffect(() => {
-    getUserInfo(user.id).then(setUserObject);
-  }, []);
+    getUserInfo(id).then((response) => {
+      setUserObject(response);
+      console.warn(response);
+      console.warn(uid);
+      if (response.uid === uid) {
+        setOtherUser(false);
+      } else {
+        setOtherUser(true);
+      }
+    });
+  }, [id]);
   const handleSubmit = () => {
     editUser(userObject, userObject.id).then(setUser);
   };
@@ -37,10 +51,10 @@ function Profile({ user, setUser }) {
         border: '2px solid white',
         fontSize: '24px!important',
       }}>
-        <PageHeader headTitle={user.username} fontSize='3em' description={<Image src={user.profileImage} avatar size='small'/>}/>
+        <PageHeader headTitle={userObject.username} fontSize='3em' description={<Image src={userObject.profileImage} avatar size='small'/>}/>
         <div>
           <StyledHeader inputfontsize='2em'>Bio</StyledHeader>
-          <p>{user.bio || 'Nothing here yet!'}</p>
+          <p>{userObject.bio || 'Nothing here yet!'}</p>
           {editing && <Divider />}
         </div>
         {editing && <Form style={{ width: '50%', margin: 'auto' }} onSubmit={handleSubmit}>
@@ -49,9 +63,9 @@ function Profile({ user, setUser }) {
                       <Form.Input label='profileImage' placeholder='Change username...' name='profileImage' value={userObject.profileImage} onChange={handleInputChange}/>
                       <Button type='submit'>Submit</Button>
                     </Form>}
-                    <Button onClick={handleClick} style={{
-                      margin: '50px auto',
-                    }}>{editing ? 'Close' : 'Edit'}</Button>
+                   { otherUser === false && <Button onClick={handleClick} style={{
+                     margin: '50px auto',
+                   }}>{editing ? 'Close' : 'Edit'}</Button>}
       </div>
     </div>
   );
