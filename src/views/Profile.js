@@ -1,28 +1,36 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
-import { useParams } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {
   Button, Image, Form, TextArea, Divider
 } from 'semantic-ui-react';
 import StyledHeader from '../components/styled_components/StyledHeader';
 import PageHeader from '../components/PageHeader';
 import { editUser, getCurrentUsersUid, getUserInfo } from '../helpers/data/userData';
+import { deleteUserFriend } from '../helpers/data/userFriendData';
 
 function Profile({ setUser }) {
   const uid = getCurrentUsersUid();
   const { id } = useParams();
   const [editing, setEditing] = useState();
   const [otherUser, setOtherUser] = useState(true);
+  const history = useHistory();
 
-  const handleClick = () => {
-    setEditing((prevState) => !prevState);
+  const handleClick = (type) => {
+    switch (type) {
+      case 'edit':
+        setEditing((prevState) => !prevState);
+        break;
+      case 'delete':
+        deleteUserFriend(uid, id).then(() => history.goBack());
+        break;
+      default:
+    }
   };
   const [userObject, setUserObject] = useState({});
   useEffect(() => {
     getUserInfo(id).then((response) => {
       setUserObject(response);
-      console.warn(response);
-      console.warn(uid);
       if (response.uid === uid) {
         setOtherUser(false);
       } else {
@@ -63,9 +71,9 @@ function Profile({ setUser }) {
                       <Form.Input label='profileImage' placeholder='Change username...' name='profileImage' value={userObject.profileImage} onChange={handleInputChange}/>
                       <Button type='submit'>Submit</Button>
                     </Form>}
-                   { otherUser === false && <Button onClick={handleClick} style={{
+                   { otherUser === false ? <Button onClick={() => handleClick('edit')} style={{
                      margin: '50px auto',
-                   }}>{editing ? 'Close' : 'Edit'}</Button>}
+                   }}>{editing ? 'Close' : 'Edit'}</Button> : <Button onClick={() => handleClick('delete')}>Remove Friend</Button>}
       </div>
     </div>
   );

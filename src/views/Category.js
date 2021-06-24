@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useParams } from 'react-router-dom';
 import {
-  Button, Form, Icon, Label, Divider, Transition
+  Button, Form, Icon, Label, Divider, Transition, Loader, Dimmer
 } from 'semantic-ui-react';
 import Feed from '../components/Feed';
 import PageHeader from '../components/PageHeader';
@@ -16,19 +16,28 @@ function Category() {
   const [category, setCategory] = useState({});
   const [tweeters, setTweeters] = useState([]);
   const [tweets, setTweets] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  const toggleLoader = () => setLoading((prevState) => !prevState);
 
   useEffect(() => {
-    getSingleCategory(id).then(setCategory);
+    getSingleCategory(id).then((response) => {
+      setCategory(response);
+      toggleLoader();
+    });
   }, [id]);
 
   useEffect(() => {
-    mergeTweetData(id, setTweeters, setTweets);
+    toggleLoader();
+    mergeTweetData(id, setTweeters, setTweets).then(() => toggleLoader());
   }, [id]);
 
   const TweeterCard = ({ ...tweeterInfo }) => {
     const handleClick = () => {
+      toggleLoader();
       deleteTweeter(tweeterInfo.username, id).then(() => {
         mergeTweetData(id, setTweeters, setTweets);
+        toggleLoader();
       });
     };
     return (
@@ -50,8 +59,10 @@ function Category() {
       setVisible((prevState) => !prevState);
     };
     const handleSubmit = () => {
+      setLoading((prevState) => !prevState);
       createTweeter(id, tweeter).then(() => {
         mergeTweetData(id, setTweeters, setTweets);
+        setLoading((prevState) => !prevState);
       });
     };
     const handleChange = (e) => {
@@ -80,12 +91,29 @@ function Category() {
 
   return (
     <>
-      <PageHeader headTitle={category?.title} description={category?.description}/>
-      <TweeterForm />
-      <Label.Group style={{ margin: '20px' }}>
-        {tweeters.length > 0 ? tweeters.map((tweeterInfo) => <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />) : <StyledHeader inputfontsize='2em'>Add a @Twitter handle to start tracking!</StyledHeader>}
-      </Label.Group>
-      <Feed tweets={tweets}/>
+        { loading
+          ? <Dimmer active inverted>
+              <Loader content='Loading'/>
+          </Dimmer>
+          : <div>
+            <PageHeader
+          headTitle={category?.title}
+          description={category?.description}
+        />
+        <TweeterForm />
+         <Label.Group style={{ margin: '20px' }}>
+          {tweeters.length > 0 ? (
+            tweeters.map((tweeterInfo) => (
+              <TweeterCard key={tweeterInfo.id} {...tweeterInfo} />
+            ))
+          ) : (
+            <StyledHeader inputfontsize="2em">
+              Add a @Twitter handle to start tracking!
+            </StyledHeader>
+          )}
+        </Label.Group>
+        <Feed tweets={tweets} />
+          </div>}
     </>
   );
 }
