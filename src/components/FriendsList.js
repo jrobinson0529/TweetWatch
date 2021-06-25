@@ -1,51 +1,45 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import {
-  Image, Menu
+  Image, Menu, Input
 } from 'semantic-ui-react';
+import { getSearchedUser, getUserFriends, mergeUserFriendInfo } from '../helpers/data/userFriendData';
+import { getCurrentUsersUid } from '../helpers/data/userData';
 
-const NavMenu = ({ user }) => {
-  const [friendList] = useState([
-    {
-      id: 12123,
-      username: 'BobbyMagic',
-      imageUrl: user.profileImage,
-    },
-    {
-      id: 12313215113245,
-      username: 'jROB',
-      imageUrl: user.profileImage,
-    },
-    {
-      id: 1231315151345,
-      username: 'ilovedogs',
-      imageUrl: user.profileImage,
-    },
-    {
-      id: 1213131313345,
-      username: 'constnatine99',
-      imageUrl: user.profileImage,
-    },
-    {
-      id: 12345,
-      username: 'xXSeperationAnxietyXx',
-      imageUrl: user.profileImage,
-    }
-  ]);
+const NavMenu = () => {
+  const uid = getCurrentUsersUid();
+  const history = useHistory();
+  const [friendList, setFriendsList] = useState([]);
+  useEffect(() => {
+    getUserFriends(uid).then((x) => mergeUserFriendInfo(x).then(setFriendsList));
+  }, []);
+  const handleClick = (e) => {
+    history.push(`/profile/${e.target.id}`);
+  };
   const FriendCard = ({ ...friendInfo }) => (
     <Menu.Item
         id={friendInfo.id}
         className='menu-item'
-        name={friendInfo.title}
+        name={friendInfo.username}
+        onClick={handleClick}
       >
-      <Image circular avatar floated='left' src={friendInfo.imageUrl} className='menu-item-image'/>
-      {friendInfo.username} is tracking Dogs.
+      <Image avatar src={friendInfo.profileImage} className='menu-item-image'/>
+      <span id={friendInfo.id}> {friendInfo.username}</span>
    </Menu.Item>
   );
+  const handleSubmit = (e) => {
+    if (e.key === 'Enter') {
+      getSearchedUser(e.target.value, uid).then(() => {
+        getUserFriends(uid).then((x) => mergeUserFriendInfo(x).then(setFriendsList));
+      });
+    }
+  };
 
   return (
       <Menu vertical fixed='right' className='nav-menu'>
         <Menu.Item position='left'>
+        <Input icon='users' iconPosition='left' placeholder='Search users...' onKeyDown={handleSubmit}/>
           <Menu.Header className='category-header'>Friends List</Menu.Header>
           {friendList.map((friendInfo) => <FriendCard key={friendInfo.id} {...friendInfo}/>)}
         </Menu.Item>

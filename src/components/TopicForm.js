@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { Button, Dropdown, Form } from 'semantic-ui-react';
 import { getUserCategories } from '../helpers/data/categoryData';
 import { getCategoryTopics, createTopic, editTopic } from '../helpers/data/topicData';
-import getCurrentUsersUid from '../helpers/data/userData';
+import { getCurrentUsersUid } from '../helpers/data/userData';
 
 function TopicForm({ setTopics, topicObject }) {
   const uid = getCurrentUsersUid();

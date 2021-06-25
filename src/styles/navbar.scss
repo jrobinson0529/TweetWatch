@@ -13,6 +13,10 @@
   min-width: 18em !important;
 }
 .menu-item-dropdown {
+  margin-top: 4px;
+  float: right;
+}
+.menu-item-dropdown-topic {
   float: right;
 }
 .nav-footer {
@@ -31,10 +35,4 @@
 .menu-item-favorite-icon {
   position: absolute;
   left: 0;
-  
-}
-.menu-item-image {
-  margin: 0!important;
-  position: absolute;
-  left: 0,
 }

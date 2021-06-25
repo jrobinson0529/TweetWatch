@@ -6,6 +6,7 @@ import Routes from '../helpers/Routes';
 import NavBar from '../components/NavBar';
 import FriendsList from '../components/FriendsList';
 import { getUserCategories } from '../helpers/data/categoryData';
+import { createUser, getUserInfo, getUsers } from '../helpers/data/userData';
 
 function App() {
   const [user, setUser] = useState(null);
@@ -19,9 +20,17 @@ function App() {
           fullName: authed.displayName,
           username: authed.email.split('@gmail.com')[0],
           uid: authed.uid,
-          profileImage: authed.photoURL
+          profileImage: authed.photoURL,
+          bio: '',
         };
-        setUser(userInfo);
+        getUsers().then((response) => {
+          const userExists = response.filter((object) => object.uid === userInfo.uid);
+          if (userExists.length === 0) {
+            createUser(userInfo).then(setUser);
+          } else {
+            getUserInfo(userExists[0].id).then(setUser);
+          }
+        });
         getUserCategories(userInfo.uid).then(setCategories);
       } else if (user || user === null) {
         setUser(false);
@@ -33,7 +42,7 @@ function App() {
      <Router>
         <NavBar user={user} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
         <FriendsList user={user}/>
-        <Routes user={user} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
+        <Routes user={user} setUser={setUser} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
       </Router>
     </div>
   );
