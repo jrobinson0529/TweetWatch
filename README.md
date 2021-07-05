@@ -11,6 +11,11 @@
   <br>
   With the ever growing presence of news channels, restaurants, and businesses on social media. Twitter has become the first place many of these sources post updates or news on new products. If you want to get news on things important to you without all the manual searching and skimming on the clutter of social media this app is for you! :point_right: :brain:
 
+  <a href="https://www.loom.com/share/b0e08e04e3d94cb38697269da4e5ca9d">
+    <p>App Demo</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/b0e08e04e3d94cb38697269da4e5ca9d-with-play.gif">
+  </a>
+
 ### Postman Responses
 - Get User(s) by Username
 

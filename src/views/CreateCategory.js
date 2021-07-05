@@ -6,7 +6,7 @@ import PageHeader from '../components/PageHeader';
 function CreateCategory({ setCategories }) {
   return (
     <div>
-      <PageHeader headTitle='Create a new category' description='' />
+      <PageHeader headTitle="Create a new category" description="" />
       <CategoryForm setCategories={setCategories} />
     </div>
   );

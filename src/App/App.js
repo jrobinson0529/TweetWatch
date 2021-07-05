@@ -23,14 +23,19 @@ function App() {
           profileImage: authed.photoURL,
           bio: '',
         };
+        // this is creating the user
         getUsers().then((response) => {
-          const userExists = response.filter((object) => object.uid === userInfo.uid);
+          const userExists = response.filter(
+            (object) => object.uid === userInfo.uid
+          );
+          // preventing duplicate users
           if (userExists.length === 0) {
             createUser(userInfo).then(setUser);
           } else {
             getUserInfo(userExists[0].id).then(setUser);
           }
         });
+        // on app load sets the users categories so that the navbar displays correctly
         getUserCategories(userInfo.uid).then(setCategories);
       } else if (user || user === null) {
         setUser(false);
@@ -38,11 +43,24 @@ function App() {
     });
   }, []);
   return (
-    <div className='App'>
-     <Router>
-        <NavBar user={user} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
-        <FriendsList user={user}/>
-        <Routes user={user} setUser={setUser} categories={categories} setCategories={setCategories} topics={topics} setTopics={setTopics}/>
+    <div className="App">
+      <Router>
+        <NavBar
+          user={user}
+          categories={categories}
+          setCategories={setCategories}
+          topics={topics}
+          setTopics={setTopics}
+        />
+        <FriendsList user={user} />
+        <Routes
+          user={user}
+          setUser={setUser}
+          categories={categories}
+          setCategories={setCategories}
+          topics={topics}
+          setTopics={setTopics}
+        />
       </Router>
     </div>
   );

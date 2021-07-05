@@ -15,7 +15,7 @@ function TopicCard({ setFavoriteTopics, uid, ...topicInfo }) {
         break;
       case 'delete':
         favoriteTopic(topicInfo.id, {
-          favorite: false
+          favorite: false,
         }).then(() => getFavoriteTopics(uid).then(setFavoriteTopics));
         break;
       default:
@@ -24,23 +24,21 @@ function TopicCard({ setFavoriteTopics, uid, ...topicInfo }) {
   return (
     <Card>
       <Card.Content>
-        <Image
-          floated='right'
-          size='mini'
-          src={topicInfo.iconUrl}
-        />
+        <Image floated="right" size="mini" src={topicInfo.iconUrl} />
         <Card.Header>{topicInfo.title}</Card.Header>
-        <Card.Meta>{topicInfo.searchParams.map((param, i) => <Label key={i} content={param}/>)}</Card.Meta>
-        <Card.Description>
-         {topicInfo.description}
-        </Card.Description>
+        <Card.Meta>
+          {topicInfo.searchParams.map((param, i) => (
+            <Label key={i} content={param} />
+          ))}
+        </Card.Meta>
+        <Card.Description>{topicInfo.description}</Card.Description>
       </Card.Content>
       <Card.Content extra>
-        <div className='ui two buttons'>
-          <Button basic color='green' onClick={() => handleClick('view')}>
+        <div className="ui two buttons">
+          <Button basic color="green" onClick={() => handleClick('view')}>
             View
           </Button>
-          <Button basic color='red' onClick={() => handleClick('delete')}>
+          <Button basic color="red" onClick={() => handleClick('delete')}>
             Remove
           </Button>
         </div>
