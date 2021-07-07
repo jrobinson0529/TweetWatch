@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
+import { Image, Menu, Input } from 'semantic-ui-react';
 import {
-  Image, Menu, Input
-} from 'semantic-ui-react';
-import { getSearchedUser, getUserFriends, mergeUserFriendInfo } from '../helpers/data/userFriendData';
+  getSearchedUser,
+  getUserFriends,
+  mergeUserFriendInfo,
+} from '../helpers/data/userFriendData';
 import { getCurrentUsersUid } from '../helpers/data/userData';
 
 const NavMenu = () => {
@@ -19,14 +21,14 @@ const NavMenu = () => {
   };
   const FriendCard = ({ ...friendInfo }) => (
     <Menu.Item
-        id={friendInfo.id}
-        className='menu-item'
-        name={friendInfo.username}
-        onClick={handleClick}
-      >
-      <Image avatar src={friendInfo.profileImage} className='menu-item-image'/>
+      id={friendInfo.id}
+      className="menu-item"
+      name={friendInfo.username}
+      onClick={handleClick}
+    >
+      <Image avatar src={friendInfo.profileImage} className="menu-item-image" />
       <span id={friendInfo.id}> {friendInfo.username}</span>
-   </Menu.Item>
+    </Menu.Item>
   );
   const handleSubmit = (e) => {
     if (e.key === 'Enter') {
@@ -37,25 +39,30 @@ const NavMenu = () => {
   };
 
   return (
-      <Menu vertical fixed='right' className='nav-menu'>
-        <Menu.Item position='left'>
-        <Input icon='users' iconPosition='left' placeholder='Search users...' onKeyDown={handleSubmit}/>
-          <Menu.Header className='category-header'>Friends List</Menu.Header>
-          {friendList.map((friendInfo) => <FriendCard key={friendInfo.id} {...friendInfo}/>)}
-        </Menu.Item>
-      </Menu>
+    <Menu vertical fixed="right" className="nav-menu">
+      <Menu.Item position="left">
+        <Input
+          icon="users"
+          iconPosition="left"
+          placeholder="Search users..."
+          onKeyDown={handleSubmit}
+        />
+        <Menu.Header className="category-header">Friends List</Menu.Header>
+        {friendList.map((friendInfo) => (
+          <FriendCard key={friendInfo.id} {...friendInfo} />
+        ))}
+      </Menu.Item>
+    </Menu>
   );
 };
 
 const FriendsList = ({ user }) => (
-    <div className='nav-container'>
-      { user && <NavMenu user={user}/>}
-    </div>
+  <div className="nav-container">{user && <NavMenu user={user} />}</div>
 );
 FriendsList.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
 };
 NavMenu.propTypes = {
-  user: PropTypes.any
+  user: PropTypes.any,
 };
 export default FriendsList;

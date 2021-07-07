@@ -13,7 +13,9 @@ function Feed({ tweets }) {
       uid,
       tweetId,
     });
-    let saveWait;
+    let saveWait; // we need to declare a variable to hold our timeout set timeout function
+
+    // this is essentially a timer that will display the message if not cleared before 5 seconds
     const timeout = () => {
       saveWait = setTimeout(() => {
         setToggle('Tweet is already saved');
@@ -21,39 +23,42 @@ function Feed({ tweets }) {
     };
     const handleClick = () => {
       timeout();
-      setToggle(<Icon name='spinner' loading/>);
+      setToggle(<Icon name="spinner" loading />);
       saveTweet(uid, tweet).then(() => {
         setToggle('Saved!');
-        clearTimeout(saveWait);
+        clearTimeout(saveWait); // if the tweet was succesfully saved which means no duplicates were found then we clear the timeout function so it does not display the wrong message
       });
     };
 
     return (
-          <div className='tweet-card'>
-            <TwitterTweetEmbed tweetId={tweetId} className='tweet-embed-card'/>
-            <Button onClick={handleClick}>{toggle}</Button>
-          </div>
+      <div className="tweet-card">
+        <TwitterTweetEmbed tweetId={tweetId} className="tweet-embed-card" />
+        <Button onClick={handleClick}>{toggle}</Button>
+      </div>
     );
   };
   TweetCard.propTypes = {
     tweetId: PropTypes.string,
   };
   return (
-    <div style={{
-      width: '50%',
-      marginLeft: 'auto',
-      marginRight: 'auto',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center'
-    }}>
-        {tweets?.map((tweet) => <TweetCard key={tweet} tweetId={tweet}/>)
-        }
+    <div
+      style={{
+        width: '50%',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      {tweets?.map((tweet) => (
+        <TweetCard key={tweet} tweetId={tweet} />
+      ))}
     </div>
   );
 }
 Feed.propTypes = {
-  tweets: PropTypes.array
+  tweets: PropTypes.array,
 };
 
 export default Feed;
